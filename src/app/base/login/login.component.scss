@@ -19,16 +19,30 @@ section{
     border-radius: 20px;
     font-size: style.$fsLg;
 
-    div {
+    > div {
       width: 80%;
       min-width: fit-content;
-      padding: 1rem 0;
       margin: 0 auto;
       margin-bottom: 1.5rem;
     }
 
     .idWrap, .pwdWrap{
+      height: 8vh;
+      min-height: 75px;
+    }
+
+    .inputWrap{
       border: 1px solid  rgba($color: #000000, $alpha: .3);
+      padding: 1rem 0;
+    }
+
+    .error {
+      font-size: style.$fsMd;
+      text-align: end;
+    }
+
+    mat-error {
+      margin-right: .25rem;
     }
 
     mat-icon{
@@ -49,6 +63,13 @@ section{
       border-bottom:  none;
     }
 
+    .captchaWrap{
+      input{
+        width: 45%;
+        min-width: 45%;
+      }
+    }
+
     #captcha{
       border-bottom: 1px solid rgba($color: #000000, $alpha: .3);;
     }
@@ -62,7 +83,7 @@ section{
     }
 
     .forgotPwd{
-      font-size: style.$fzMin;
+      font-size: style.$fsMin;
       text-decoration: underline;
     }
   }

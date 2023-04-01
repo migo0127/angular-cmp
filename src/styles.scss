@@ -4,7 +4,7 @@ $mainColor: #5991fa;
 $whiteColor: #fff;
 $fsLg: 1.25rem;
 $fsMd: 1rem;
-$fzMin: .75rem;
+$fsMin: .75rem;
 
 %fullContainer{
   width: 100%;
@@ -21,6 +21,11 @@ $fzMin: .75rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+%flexCloumn{
+  display: flex;
+  flex-direction: column;
 }
 
 %noPaddingMargin{
