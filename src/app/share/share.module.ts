@@ -3,20 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 
+const ANGULAR_MODULE = [
+  FormsModule,
+  ReactiveFormsModule,
+  CommonModule,
+]
+
 @NgModule({
   declarations: [
   ],
   imports: [
-    CommonModule,
     MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
+    ANGULAR_MODULE
   ],
   exports: [
-    CommonModule,
     MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
+    ANGULAR_MODULE,
   ],
   providers: [],
   bootstrap: []
