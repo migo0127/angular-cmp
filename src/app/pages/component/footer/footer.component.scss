@@ -1,0 +1,27 @@
+@use 'src/styles' as style;
+
+:host {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4vh;
+  min-height: 4vh;
+  line-height: 4vh;
+  bottom: 0;
+  z-index: 1;
+
+  p{
+    @extend %fullContainer;
+    @extend %noPaddingMargin;
+    @extend %flexCenter;
+    background-color: style.$mainColor;
+
+    a{
+      @extend %aTag;
+      color: style.$whiteColor;
+      font-weight: bold;
+      margin-right: .5rem;
+    }
+  }
+}
+
