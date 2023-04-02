@@ -8,20 +8,10 @@ import { HttpClient } from "@angular/common/http";
 })
 export class LoginService {
 
-  _loginItem: LoginItem;
-
   constructor(
     private http: HttpClient
   ){
 
-  }
-
-  get loginItem(): LoginItem {
-    return this._loginItem;
-  }
-
-  set loginItem(loginItem: LoginItem) {
-    this._loginItem = loginItem;
   }
 
   getMockLoginData(): Observable<LoginItem>{

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { of, switchMap } from 'rxjs';
 import { DialogData, LoginItem } from 'src/app/model';
-import { LoginService } from 'src/app/service';
+import { AuthService, LoginService,  } from 'src/app/service';
 import { MaterialDialogComponent } from 'src/app/share/component/dialog/dialog.component';
 
 @Component({
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private dialog: MatDialog,
     private loginService: LoginService,
+    private authService: AuthService,
   ) {
     this.loginForm = this.fb.group({
       id: ['', [Validators.required]],
@@ -84,7 +85,8 @@ export class LoginComponent implements OnInit {
     ).subscribe((result: boolean) => {
         if(result){
           // 登入成功
-          this.router.navigate(['pages/home']);
+          this.router.navigate(['/pages']);
+          this.authService.login();
         }else{
           // '帳號或密碼有誤，請重新輸入'
           const dialogData: DialogData = {
