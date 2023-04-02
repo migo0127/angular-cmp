@@ -9,24 +9,26 @@
 
   mat-sidenav-content {
     @extend %flexBetween;
+    width: 90%;
     font-size: style.$fsLg;
-    margin: 0 2rem;
+    font-weight: bold;
+    margin: 0 auto;
   }
 
   .logoWrap{
     height: 80%;
     margin: 0;
-    text-align: start;
     overflow: hidden;
     img {
-      width: 100%;
       height: 100%;
       object-fit: contain;
     }
   }
 
   .userInfoWrap{
-
+    span {
+      margin: 0 1rem;
+    }
   }
 
 }

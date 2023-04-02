@@ -2,11 +2,14 @@
 <mat-sidenav-container id="menuContainer">
   <mat-sidenav-content>
     <section class="logoWrap">
-      <img [src]="logoUrl" alt="migo">
+      <img
+        [src]="logoUrl"
+        alt="migo"
+        class="cursor"
+        (click)="onClickLogo()">
     </section>
     <section class="userInfoWrap">
-      <span></span>
-      <span></span>
+      <span>{{ userInfo.name }}</span>
       <span
         class="cursor"
         (click)="onLogout()">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/service';
+import { Router } from '@angular/router';
+import { UserInfo } from 'src/app/model';
+import { LoginService, UserInfoService } from 'src/app/service';
 
 @Component({
   selector: 'app-menu',
@@ -9,15 +11,21 @@ import { LoginService } from 'src/app/service';
 export class MenuComponent implements OnInit {
 
   logoUrl: string = '../../../assets/img/logo.png';
+  userInfo: UserInfo;
 
   constructor(
+    private router: Router,
     private loginService: LoginService,
+    private userInfoService: UserInfoService,
   ) {}
 
   ngOnInit(): void {
-
+    this.userInfo = this.userInfoService.userInfo;
   }
 
+  onClickLogo(): void {
+    this.router.navigate(['/pages/home']);
+  }
 
   onLogout(): void {
     this.loginService.logout();
