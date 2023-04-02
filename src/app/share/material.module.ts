@@ -11,6 +11,7 @@ import { MaterialDialogComponent } from './component/dialog/dialog.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const MATERIAL_MODULE = [
   MatButtonModule,
@@ -23,6 +24,7 @@ const MATERIAL_MODULE = [
   MatSidenavModule,
   MatToolbarModule,
   MatListModule,
+  MatGridListModule,
 ]
 
 const MATERIAL_COMPONENT = [

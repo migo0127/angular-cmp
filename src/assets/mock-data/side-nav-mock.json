@@ -1,0 +1,7 @@
+{
+  "dashboard": "/pages/dashboard",
+  "order": [
+    { "list": "/pages/order/list" },
+    { "add": "/pages/order/add" }
+  ]
+}
