@@ -10,7 +10,7 @@ import { LoginService, UserInfoService } from 'src/app/service';
 })
 export class MenuComponent implements OnInit {
 
-  logoUrl: string = '../../../assets/img/logo.png';
+  logoUrl: string = '../../../assets/img/logo-1.png';
   userInfo: UserInfo;
 
   constructor(
