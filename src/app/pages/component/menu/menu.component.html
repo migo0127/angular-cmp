@@ -1,1 +1,18 @@
-<p>menu works!</p>
+
+<mat-sidenav-container id="menuContainer">
+  <mat-sidenav-content>
+    <section class="logoWrap">
+      <img [src]="logoUrl" alt="migo">
+    </section>
+    <section class="userInfoWrap">
+      <span></span>
+      <span></span>
+      <span
+        class="cursor"
+        (click)="onLogout()">
+        Logout
+      </span>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

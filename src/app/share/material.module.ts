@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
@@ -7,9 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MaterialDialogComponent } from './component/dialog/dialog.component';
-import { ShareModule } from './share.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 const MATERIAL_MODULE = [
   MatButtonModule,
@@ -19,6 +20,9 @@ const MATERIAL_MODULE = [
   MatIconModule,
   MatInputModule,
   MatDialogModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule,
 ]
 
 const MATERIAL_COMPONENT = [

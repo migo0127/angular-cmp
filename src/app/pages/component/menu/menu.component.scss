@@ -1,0 +1,32 @@
+@use 'src/styles' as style;
+
+#menuContainer {
+  width: 100%;
+  height: 5vh;
+  min-height: 45px;
+  color: style.$whiteColor;
+  background-color: style.$mainColor;
+
+  mat-sidenav-content {
+    @extend %flexBetween;
+    font-size: style.$fsLg;
+    margin: 0 2rem;
+  }
+
+  .logoWrap{
+    height: 80%;
+    margin: 0;
+    text-align: start;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .userInfoWrap{
+
+  }
+
+}
