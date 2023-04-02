@@ -4,8 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { of, switchMap } from 'rxjs';
 import { DialogData, LoginItem } from 'src/app/model';
-import { AuthService, LoginService,  } from 'src/app/service';
+import { LoginService,  } from 'src/app/service';
 import { MaterialDialogComponent } from 'src/app/share/component/dialog/dialog.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ import { MaterialDialogComponent } from 'src/app/share/component/dialog/dialog.c
 })
 export class LoginComponent implements OnInit {
 
+  isProd: boolean;
   loginForm: FormGroup;
   hide: Boolean;
   captcha: string;
@@ -28,6 +30,7 @@ export class LoginComponent implements OnInit {
     private dialog: MatDialog,
     private loginService: LoginService,
   ) {
+    this.isProd = environment.production;
     this.loginForm = this.fb.group({
       id: ['', [Validators.required]],
       pwd: ['', [Validators.required]],
@@ -36,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.getCaptcha();
     this.idControl?.valueChanges.subscribe((value: string) => {
       const newValue = value.trim().replace(/[^A-z\d]+$/, '');
@@ -121,6 +125,14 @@ export class LoginComponent implements OnInit {
     return dialogRef;
   }
 
+  mockData(): void {
+    const loginData: loginItemWithCaptcha = {
+      id: "A106900466",
+      pwd: "abcd1234",
+      captcha: this.captcha
+    }
+    this.loginForm.setValue(loginData, { emitEvent: false });
+  }
 
 }
 

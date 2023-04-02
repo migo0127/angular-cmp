@@ -93,5 +93,12 @@
 
   </form>
 
+  <button
+    *ngIf="!isProd"
+    class="mockBtn"
+    (click)="mockData()">
+    Mock
+  </button>
 
 </section>
+
