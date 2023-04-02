@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private authService: AuthService,
     private loginService: LoginService,
   ) {
     this.loginForm = this.fb.group({
@@ -85,8 +84,8 @@ export class LoginComponent implements OnInit {
     ).subscribe((result: boolean) => {
         if(result){
           // 登入成功
+          this.loginService.login();
           this.router.navigate(['/pages/home']);
-          this.authService.login();
         }else{
           // '帳號或密碼有誤，請重新輸入'
           const dialogData: DialogData = {

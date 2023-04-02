@@ -8,7 +8,7 @@ import { YNFlag } from "src/app/model";
 export class AuthService {
 
   _isLoggedIn$: BehaviorSubject<boolean>;
-  _isLoggedIn: boolean;
+  private _isLoggedIn: boolean;
 
   constructor() {
     const isLogin: boolean = sessionStorage.getItem('isLoggedIn') === YNFlag.Y;
@@ -24,16 +24,6 @@ export class AuthService {
 
   get isLoggedIn(): boolean {
    return this._isLoggedIn;
-  }
-
-  login(): void {
-    sessionStorage.setItem('isLoggedIn', YNFlag.Y);
-    this._isLoggedIn$.next(true);
-  }
-
-  logout(): void {
-    sessionStorage.removeItem('isLoggedIn');
-    this._isLoggedIn$.next(false);
   }
 
 }

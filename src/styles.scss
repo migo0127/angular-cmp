@@ -23,6 +23,12 @@ $fsMin: .75rem;
   align-items: center;
 }
 
+%flexBetween{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 %flexCloumn{
   display: flex;
   flex-direction: column;
