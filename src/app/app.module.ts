@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { ShareModule } from './share/share.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './base/login/login.component';
-import { UnauthurizedComponent } from './base/unauthurized/unauthurized.component';
+import { UnauthorizedComponent } from './base/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UnauthurizedComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,

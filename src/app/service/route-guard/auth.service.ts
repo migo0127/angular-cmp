@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, map } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
+import { YNFlag } from "src/app/model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
   _isLoggedIn: boolean;
 
   constructor() {
-    const isLogin: boolean = sessionStorage.getItem('isLoggedIn') === 'Y';
+    const isLogin: boolean = sessionStorage.getItem('isLoggedIn') === YNFlag.Y;
     this._isLoggedIn$ = new BehaviorSubject<boolean>(isLogin);
     this._isLoggedIn$.subscribe((isLoggedIn: boolean) => {
       this._isLoggedIn = isLoggedIn;
@@ -26,7 +27,7 @@ export class AuthService {
   }
 
   login(): void {
-    sessionStorage.setItem('isLoggedIn', 'Y');
+    sessionStorage.setItem('isLoggedIn', YNFlag.Y);
     this._isLoggedIn$.next(true);
   }
 

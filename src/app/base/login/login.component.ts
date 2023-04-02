@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private loginService: LoginService,
     private authService: AuthService,
+    private loginService: LoginService,
   ) {
     this.loginForm = this.fb.group({
       id: ['', [Validators.required]],
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
     ).subscribe((result: boolean) => {
         if(result){
           // 登入成功
-          this.router.navigate(['/pages']);
+          this.router.navigate(['/pages/home']);
           this.authService.login();
         }else{
           // '帳號或密碼有誤，請重新輸入'

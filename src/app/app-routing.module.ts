@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UnauthurizedComponent } from './base/unauthurized/unauthurized.component';
 import { LoginComponent } from './base/login/login.component';
 import { AuthGuard } from './service/route-guard';
+import { UnauthorizedComponent } from './base/unauthorized/unauthorized.component';
 
 const routes: Routes = [
-  { path: '', component: UnauthurizedComponent, pathMatch: 'full' },
+  { path: '', component: UnauthorizedComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'pages',
     canActivate: [AuthGuard],

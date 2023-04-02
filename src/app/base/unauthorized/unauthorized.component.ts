@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service';
 
 @Component({
-  selector: 'app-unauthurized',
-  templateUrl: './unauthurized.component.html',
-  styleUrls: ['./unauthurized.component.scss']
+  selector: 'app-unauthorized',
+  templateUrl: './unauthorized.component.html',
+  styleUrls: ['./unauthorized.component.scss']
 })
-export class UnauthurizedComponent implements OnInit {
+export class UnauthorizedComponent implements OnInit {
 
   constructor(
     private router: Router,
