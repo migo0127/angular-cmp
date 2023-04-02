@@ -1,0 +1,27 @@
+#pagesWrap {
+  .menuWrap {
+    width: 100%;
+    height: 5vh;
+    min-height: 45px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .navWrap {
+    width: 12vw;
+    min-width: 230px;
+    height: calc(100% - 4vh);
+    position: fixed;
+    top: 45px;
+    left: 0;
+  }
+
+  .mainWrap {
+    position: absolute;
+    top: calc(5vh + 1.25rem);
+    left: 235px;
+    padding: .5rem;
+  }
+}

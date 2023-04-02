@@ -6,6 +6,7 @@ import { HomeComponent } from './component/home/home.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { SideNavComponent } from './component/side-nav/side-nav.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { DashboardComponent } from './component/dashboard/dashboardomponent';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FooterComponent } from './component/footer/footer.component';
     HomeComponent,
     MenuComponent,
     SideNavComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent,
   ],
   imports: [
     ShareModule,
