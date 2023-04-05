@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
-import { Chart, CategoryScale, LineController, BarController,LineElement, PointElement, LinearScale, BarElement, Title} from 'chart.js'
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Chart, CategoryScale, LineController, BarController,LineElement, PointElement, LinearScale, BarElement, Title, BubbleController, DoughnutController, ArcElement, PieController, PolarAreaController, RadialLinearScale, RadarController, ScatterController} from 'chart.js'
 
 @Component({
   selector: 'app-char-js',
@@ -13,8 +13,12 @@ export class CharJsComponent implements AfterViewInit{
 
   constructor(
   ){
-    Chart.register(LineController, BarController, LineElement, PointElement, LinearScale, Title);
-    Chart.register(CategoryScale, LinearScale, BarElement);
+    Chart.register(
+      LineController, BarController, BubbleController, DoughnutController,
+      PieController, PolarAreaController, RadarController, ScatterController,
+      CategoryScale, RadialLinearScale, BarElement, LineElement, PointElement,
+      ArcElement, LinearScale, Title
+    );
    }
 
   ngAfterViewInit(): void {
