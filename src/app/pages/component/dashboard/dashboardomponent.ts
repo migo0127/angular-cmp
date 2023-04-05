@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, UserInfoService,  } from 'src/app/service';
-import Chart from 'chart.js/auto';
+import Chart, { ChartData } from 'chart.js/auto';
+import { CHARTJSTYPE } from 'src/app/model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,8 @@ import Chart from 'chart.js/auto';
 })
 export class DashboardComponent implements OnInit {
 
+  barChartConfig: any;
+
   constructor(
     private authService: AuthService,
     private userInfoService: UserInfoService,
@@ -16,14 +19,18 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log([this.authService.isLoggedIn, this.userInfoService.userInfo]);
+    this.initChat();
   }
 
+
   ngAfterViewInit(): void {
-    const ctx: HTMLCanvasElement | null = document.getElementById('myChart') as HTMLCanvasElement;
-    if(!ctx) return;
-    const myChart = new Chart(ctx, {
+
+  }
+
+  initChat(): void{
+    this.barChartConfig = {
       type: 'bar',
-      data: {
+      data : {
         labels: ['一月', '二月', '三月'],
         datasets: [{
           label: '銷售業績(百萬)',
@@ -33,7 +40,7 @@ export class DashboardComponent implements OnInit {
       options: {
         aspectRatio: 0
       }
-    });
+    }
   }
 
 }

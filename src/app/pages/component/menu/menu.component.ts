@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   }
 
   onClickLogo(): void {
-    this.router.navigate(['/pages/home']);
+    this.router.navigate(['/pages/dashboard']);
   }
 
   onLogout(): void {

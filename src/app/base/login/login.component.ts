@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
         if(result){
           // 登入成功
           this.loginService.login();
-          this.router.navigate(['/pages/home']);
+          this.router.navigate(['/pages/dashboard']);
         }else{
           // '帳號或密碼有誤，請重新輸入'
           const dialogData: DialogData = {
