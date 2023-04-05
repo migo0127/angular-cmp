@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
-import { BarController, Chart, ChartType, ChartTypeRegistry } from 'chart.js';
-import { CHARTJSTYPE } from 'src/app/model';
+import { AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { Chart, CategoryScale, LineController, BarController,LineElement, PointElement, LinearScale, BarElement, Title} from 'chart.js'
 
 @Component({
   selector: 'app-char-js',
@@ -9,14 +8,18 @@ import { CHARTJSTYPE } from 'src/app/model';
 })
 export class CharJsComponent implements AfterViewInit{
 
-  @Input('config') config: any;
+  @Input('barChartConfig') barChartConfig: any
+  @ViewChild('canvasChart') canvasChart: ElementRef;
 
-  constructor(){ }
-
+  constructor(
+  ){
+    Chart.register(LineController, BarController, LineElement, PointElement, LinearScale, Title);
+    Chart.register(CategoryScale, LinearScale, BarElement);
+   }
 
   ngAfterViewInit(): void {
-    const ctx: HTMLCanvasElement | null = document.getElementById('myChart') as HTMLCanvasElement;
+    const ctx = this.canvasChart.nativeElement.getContext('2d');
     if(!ctx) return;
-    const myChart = new Chart(ctx, this.config);
+    const chart = new Chart(ctx, this.barChartConfig);
   }
 }

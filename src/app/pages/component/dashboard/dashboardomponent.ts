@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, UserInfoService,  } from 'src/app/service';
-import Chart, { ChartData } from 'chart.js/auto';
 import { CHARTJSTYPE } from 'src/app/model';
+import { AuthService, UserInfoService,  } from 'src/app/service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -11,26 +11,24 @@ import { CHARTJSTYPE } from 'src/app/model';
 export class DashboardComponent implements OnInit {
 
   barChartConfig: any;
+  barChartConfig2: any;
 
   constructor(
     private authService: AuthService,
     private userInfoService: UserInfoService,
-  ) { }
+  ) {
+
+   }
 
   ngOnInit(): void {
-    console.log([this.authService.isLoggedIn, this.userInfoService.userInfo]);
-    this.initChat();
+    this.initChartData();
   }
 
-
-  ngAfterViewInit(): void {
-
-  }
-
-  initChat(): void{
+  initChartData(): void {
     this.barChartConfig = {
-      type: 'bar',
-      data : {
+      type: CHARTJSTYPE.BAR,
+
+      data: {
         labels: ['一月', '二月', '三月'],
         datasets: [{
           label: '銷售業績(百萬)',
@@ -38,9 +36,22 @@ export class DashboardComponent implements OnInit {
         }]
       },
       options: {
-        aspectRatio: 0
+        maintainAspectRatio: 0,
+      }
+    }
+
+    this.barChartConfig2 = {
+      type: CHARTJSTYPE.BAR,
+      data: {
+        labels: ['四月', '五月', '六月'],
+        datasets: [{
+          label: '銷售業績(百萬)',
+          data: [70, 59, 92]
+        }]
+      },
+      options: {
+        maintainAspectRatio: 0,
       }
     }
   }
-
 }
