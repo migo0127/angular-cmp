@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { of, switchMap } from 'rxjs';
@@ -16,7 +16,7 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent implements OnInit {
 
   isProd: boolean;
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   hide: Boolean;
   captcha: string;
 
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialog: MatDialog,
     private loginService: LoginService,
   ) {
