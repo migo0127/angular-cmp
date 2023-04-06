@@ -127,7 +127,7 @@ export class LoginComponent implements OnInit {
 
   mockData(): void {
     const loginData: loginItemWithCaptcha = {
-      id: "A106900466",
+      id: "A123456789",
       pwd: "abcd1234",
       captcha: this.captcha
     }
