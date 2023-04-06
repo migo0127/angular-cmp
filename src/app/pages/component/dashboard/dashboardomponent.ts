@@ -13,28 +13,29 @@ export class DashboardComponent implements OnInit {
 
   barChartOptions: ChartConfiguration['options'];
   barChartType: ChartType;
-  barChartData: ChartData<'bar'>;
+  barChartData: ChartData;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.initChartData();
+    this.initBarChartData();
   }
 
-  initChartData(): void {
-
+  initBarChartData(): void {
     this.barChartOptions = {
       responsive: true,
-      // We use these empty structures as placeholders for dynamic theming.
+      maintainAspectRatio: false,
       scales: {
         x: {},
         y: {
-          min: 10
+          min: 0,
+          max: 100
         }
       },
       plugins: {
         legend: {
           display: true,
+          position: 'bottom'
         },
         datalabels: {
           anchor: 'end',
@@ -46,10 +47,18 @@ export class DashboardComponent implements OnInit {
     this.barChartType = 'bar';
 
     this.barChartData = {
-      labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
+      labels: [ '2023/01', '2023/02', '2023/03', '2023/04' ],
       datasets: [
-        { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A' },
-        { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B' }
+        {
+          data: [ 65, 59, 80, 81 ],
+          label: '註冊人數',
+          type: 'bar'
+        },
+        {
+          data: [ 28, 48, 40, 19 ],
+          label: '銷售額度',
+          type: 'line'
+        }
       ]
     };
 

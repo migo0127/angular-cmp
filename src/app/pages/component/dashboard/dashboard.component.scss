@@ -1,4 +1,7 @@
+@use 'src/styles' as style;
+
 #barChartWrap{
-  height: 400px;
-  overflow: hidden;
+  width: 100%;
+  min-height: 300px;
+  height: 35vh;
 }
