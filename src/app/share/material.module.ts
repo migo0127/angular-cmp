@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
 
 const MATERIAL_MODULE = [
   MatButtonModule,
@@ -25,6 +26,7 @@ const MATERIAL_MODULE = [
   MatToolbarModule,
   MatListModule,
   MatGridListModule,
+  MatTableModule,
 ]
 
 const MATERIAL_COMPONENT = [

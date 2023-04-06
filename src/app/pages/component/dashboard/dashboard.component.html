@@ -1,5 +1,5 @@
 <div>
-  <section id="barChartWrap">
+  <section class="barChartWrap">
     <app-chart-js
       [data]="barChartData"
       [options]="barChartOptions"
@@ -9,5 +9,124 @@
       >
     </app-chart-js>
   </section>
+
+  <section class="tablePieWrap">
+    <div class="tableWrap">
+      <table
+        mat-table
+        [dataSource]="tableData"
+        matSort>
+        <!-- Index Column -->
+        <ng-container matColumnDef="index">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            >
+            #
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            >
+            {{ row.index }}
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            >
+            Name
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            >
+            {{ row.name }}
+          </td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            >
+            Price
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            >
+            {{ row.price | number }}
+          </td>
+        </ng-container>
+
+        <!-- Qty Column -->
+        <ng-container matColumnDef="qty">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            >
+            Qty
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            >
+            {{ row.qty | number }}
+          </td>
+        </ng-container>
+
+        <!-- Total Column -->
+        <ng-container matColumnDef="total">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            >
+            Total
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            >
+            {{ row.total | number }}
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedTableColumns"
+          >
+        </tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedTableColumns;"
+          >
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="pieChartWrap">
+      <app-chart-js
+        [data]="pieChartData"
+        [options]="pieChartOptions"
+        [type]="pieChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"
+        >
+      </app-chart-js>
+    </div>
+  </section>
+
+
 
 </div>
