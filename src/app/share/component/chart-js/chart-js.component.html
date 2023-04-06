@@ -1,0 +1,11 @@
+<section  id="canvasContainer">
+  <canvas
+    baseChart
+    class="chart"
+    [data]="data"
+    [options]="options"
+    [type]="type"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)">
+</canvas>
+</section>

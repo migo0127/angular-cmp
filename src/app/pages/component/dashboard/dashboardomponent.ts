@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CHARTJSTYPE } from 'src/app/model';
-import { AuthService, UserInfoService,  } from 'src/app/service';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,16 +9,13 @@ import { AuthService, UserInfoService,  } from 'src/app/service';
 })
 export class DashboardComponent implements OnInit {
 
-  mixedChartCongif: any;
-  barChartConfig: any;
-  barChartConfig2: any;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  constructor(
-    private authService: AuthService,
-    private userInfoService: UserInfoService,
-  ) {
+  barChartOptions: ChartConfiguration['options'];
+  barChartType: ChartType;
+  barChartData: ChartData<'bar'>;
 
-   }
+  constructor() { }
 
   ngOnInit(): void {
     this.initChartData();
@@ -27,43 +23,46 @@ export class DashboardComponent implements OnInit {
 
   initChartData(): void {
 
-    this.mixedChartCongif = {
-      type: CHARTJSTYPE.BAR,
-      data: {
-        labels: ["2023/04/01", "", "2023/04/03", "", "2023/04/05", ""],
-        datasets: [
-          {
-            type: "bar",
-            backgroundColor: "rgba(54, 162, 235, 0.2)",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 1,
-            label: "註冊數",
-            data: [60, 49, 72, 90, 100, 60]
-          },
-          {
-            type: "line",
-            label: "銷售量",
-            data: [25, 13, 30, 35, 25, 40],
-            lineTension: 0, // 曲線的彎度，設 0 表示直線
-            fill: true // 是否填滿色彩
-          }
-        ]
+    this.barChartOptions = {
+      responsive: true,
+      // We use these empty structures as placeholders for dynamic theming.
+      scales: {
+        x: {},
+        y: {
+          min: 10
+        }
       },
-      options: {
-        maintainAspectRatio: false,
+      plugins: {
         legend: {
-          display: false,
+          display: true,
         },
-        scales: {
-          yAxes: [{
-            id: 'first-y-axis',
-            type: 'linear'
-          }, {
-            id: 'second-y-axis',
-            type: 'linear'
-          }]
+        datalabels: {
+          anchor: 'end',
+          align: 'end'
         }
       }
-    }
+    };
+
+    this.barChartType = 'bar';
+
+    this.barChartData = {
+      labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
+      datasets: [
+        { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A' },
+        { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B' }
+      ]
+    };
+
+  }
+
+  // events
+  chartClicked(event: any): void {
+    if(!event) return;
+    // console.log(event);
+  }
+
+  chartHovered(event: any): void {
+    if(!event) return;
+    // console.log(event);
   }
 }

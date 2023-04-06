@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
-import { CharJsComponent } from './component/dialog/char-js/char-js.component';
+import { ChartJsComponent } from './component/chart-js/chart-js.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const ANGULAR_MODULE = [
   FormsModule,
@@ -11,7 +12,7 @@ const ANGULAR_MODULE = [
 ]
 
 const COMMON_COMPONENT = [
-  CharJsComponent,
+  ChartJsComponent,
 ]
 
 @NgModule({
@@ -20,10 +21,12 @@ const COMMON_COMPONENT = [
   ],
   imports: [
     MaterialModule,
+    NgChartsModule,
     ANGULAR_MODULE
   ],
   exports: [
     MaterialModule,
+    NgChartsModule,
     ANGULAR_MODULE,
     COMMON_COMPONENT
   ],

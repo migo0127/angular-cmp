@@ -1,9 +1,12 @@
 <div>
   <section id="barChartWrap">
-    <app-char-js
-      [barChartConfig]="mixedChartCongif"
-      >
-    </app-char-js>
+    <app-chart-js
+    [data]="barChartData"
+    [options]="barChartOptions"
+    [type]="barChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)">
+  </app-chart-js>
   </section>
 
 </div>
