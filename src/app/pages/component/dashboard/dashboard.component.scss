@@ -1,39 +1,135 @@
 @use 'src/styles' as style;
 
-section:not(:last-child) {
+$pieChartHeight: 400px;
+$pieChartMinHeight: 350px;
+$dashBoardMainColor: #748194;
+
+section{
   margin-bottom: 1rem;
 }
 
-.barChartWrap{
-  width: 100%;
-  min-height: 300px;
-  height: 30vh;
+// costWrap start
+.costWrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: 5px;
+
+  & > div {
+    @extend %flexCloumnCenter;
+    height: max-content;
+    min-height: max-content;
+
+    &:not(:last-child){
+      border-right: 1px solid #c2c2c2;
+      // border-image: linear-gradient(to bottom, transparent 10%, #c2c2c2 20%, #c2c2c2 80%, transparent 100%) 1;
+    }
+
+    p {
+      color: $dashBoardMainColor;
+      padding-bottom: .5rem;
+      span {
+        padding-right: .5rem;
+      }
+    }
+
+    .mainText{
+      font-size: 1.5rem;
+    }
+
+    mat-icon{
+      font-size: 3.5rem;
+      width: fit-content;
+      height:  fit-content;
+      text-align: center;
+    }
+
+    .month{
+      color: #2c7be5;
+    }
+
+    .season{
+      color: #27bcfd;
+    }
+
+    .half{
+      color: #00d27a;
+    }
+
+    .year{
+      color: #f5803e;
+    }
+  }
 }
 
-.card{
-  display: flex;
-  width: 100%;
-  height: calc(50vh - 4rem);
-  justify-content: space-between;
-  align-items: center;
-  & > div {
-    width: calc(100% / 2 - 2rem) !important;
-  }
+@media screen and (max-width: 480px) {
+  .costWrap{
+    grid-template-columns: 1fr;
 
-  .tableWrap {
-    width: 100%;
+    & > div {
+      padding: .5rem;
+      &:not(:last-child){
+        border-right: none;
+        border-bottom: 1px solid #c2c2c2;
+        // border-image: linear-gradient(to right, transparent 5%, #c2c2c2 10%, #c2c2c2 85%, transparent 100%) 1;
+      }
+    }
+  }
+}
+// costWrap end
+
+
+.chartWrap{
+  display: grid;
+  grid-template-columns: minmax(30vw, 450px) 1fr;
+  height: fit-content;
+  border-top: 1px dotted $dashBoardMainColor;
+  border-bottom: 1px dotted $dashBoardMainColor;
+
+  .marketingWrap {
     height: 100%;
-    overflow: auto;
-    table{
-      width: 100%
+    padding: 1rem 0;
+    border-right: 1px dotted $dashBoardMainColor;
+
+    .doughnutCharWrap{
+      height: 250px;
+      position: relative;
+
+      .doughnutTotal{
+        font-size: 1.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 25%);
+      }
+    }
+
+    .marketingItemWrap{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      ul{
+        color: $dashBoardMainColor;
+        margin-top: 1rem;
+        li {
+          padding: .25rem 0;
+          &:first-child {
+            color: black;
+          }
+        }
+      }
     }
   }
 
-  .pieChartWrap{
-    width: 100%;
-    height: 100%;
+  .targetRateWrap{
+    padding: 1rem 1.25rem;
   }
-
 }
 
+@media screen and (max-width: 480px) {
+  .chartWrap{
+    grid-template-columns: 1fr;
 
+    .marketingWrap {
+      border-right: none;
+    }
+  }
+}

@@ -1,5 +1,78 @@
 <div>
-  <section class="barChartWrap">
+
+  <!-- costWrap -->
+  <section
+    *ngIf="costData"
+    class="costWrap">
+    <div *ngFor="let item of costData">
+      <p>
+        <mat-icon
+          [ngClass]="item.type"
+          [fontIcon]="item.icon"></mat-icon>
+      </p>
+      <p>
+        <span
+          class="mainText"
+          [ngClass]="item.type">
+          ${{ item.current | number }}
+        </span>
+        <ng-container [ngSwitch]="item.type">
+          <span *ngSwitchCase="'half'">{{ 'half of year' }}</span>
+          <span *ngSwitchDefault>{{ 'current ' + item.type }}</span>
+        </ng-container>
+      </p>
+      <p>
+        <span>${{ item.last | number }}</span>
+        <ng-container [ngSwitch]="item.type">
+          <span *ngSwitchCase="'half'">{{ 'last half of year' }}</span>
+          <span *ngSwitchDefault>{{ 'last ' + item.type }}</span>
+        </ng-container>
+      </p>
+    </div>
+  </section>
+
+  <!--  -->
+  <section class="chartWrap">
+    <div class="marketingWrap">
+      <div class="doughnutCharWrap">
+        <app-chart-js
+          *ngIf="doughnutChartData"
+          [type]="doughnutChartType"
+          [data]="doughnutChartData"
+          [options]="doughnutChartOptions"
+          (chartHover)="chartHovered($event, 'pie')"
+          (chartClick)="chartClicked($event, 'pie')"
+          >
+        </app-chart-js>
+        <p class="doughnutTotal">$1.22M</p>
+      </div>
+      <div class="marketingItemWrap">
+        <ul *ngIf="marketingData?.service">
+          <li *ngFor="let data of marketingData?.service">
+            {{ data }}
+          </li>
+        </ul>
+        <ul *ngIf="marketingData?.network">
+          <li *ngFor="let data of marketingData?.network">
+            {{ data }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="targetRateWrap">
+      <app-chart-js
+        [type]="lineChartType"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        (chartHover)="chartHovered($event, 'mixed')"
+        (chartClick)="chartClicked($event, 'mixed')"
+        >
+    </app-chart-js>
+    </div>
+  </section>
+
+  <!-- <section class="barChartWrap">
     <app-chart-js
       [type]="mixedChartType"
       [data]="mixedChartData"
@@ -30,15 +103,14 @@
         (chartClick)="chartClicked($event, 'bar')">
       </app-chart-js>
     </div>
-  </section>
+  </section> -->
 
-  <section class="card">
-    <div class="tableWrap">
+  <!-- <section class="card">chartWrap
+    <div *ngIf="tableData" class="tableWrap">
       <table
         mat-table
         [dataSource]="tableData"
         matSort>
-        <!-- Index Column -->
         <ng-container matColumnDef="index">
           <th
             mat-header-cell
@@ -55,7 +127,6 @@
           </td>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th
             mat-header-cell
@@ -72,7 +143,6 @@
           </td>
         </ng-container>
 
-        <!-- Price Column -->
         <ng-container matColumnDef="price">
           <th
             mat-header-cell
@@ -89,7 +159,6 @@
           </td>
         </ng-container>
 
-        <!-- Qty Column -->
         <ng-container matColumnDef="qty">
           <th
             mat-header-cell
@@ -106,7 +175,6 @@
           </td>
         </ng-container>
 
-        <!-- Total Column -->
         <ng-container matColumnDef="total">
           <th
             mat-header-cell
@@ -147,8 +215,6 @@
         >
       </app-chart-js>
     </div>
-  </section>
-
-
+  </section> -->
 
 </div>

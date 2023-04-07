@@ -43,12 +43,12 @@ export class DashboardUtilService {
           {
             position: 'left',
           },
-        y1: {
-          position: 'right',
-          ticks: {
-            color: 'red'
-          }
-        }
+        // y1: {
+        //   position: 'right',
+        //   ticks: {
+        //     color: 'red'
+        //   }
+        // }
       },
       plugins: {
         legend: { display: true },
@@ -74,6 +74,23 @@ export class DashboardUtilService {
         },
       },
     }
+  }
+
+  getBaseDoughnutChartOptions(): any {
+    return {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+        },
+        datalabels: {
+          anchor: 'end',
+          align: 'end',
+        }
+      },
+      cutoutPercentage: 25,
+    };
   }
 
 }
