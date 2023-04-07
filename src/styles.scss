@@ -30,9 +30,11 @@ $fsMin: .75rem;
   align-items: center;
 }
 
-%flexCloumn{
+%flexCloumnCenter{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 %noPaddingMargin{
@@ -43,6 +45,10 @@ $fsMin: .75rem;
 %aTag{
   direction: none;
   text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html, body {
