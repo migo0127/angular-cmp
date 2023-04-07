@@ -12,6 +12,9 @@
   grid-template-columns:  minmax(230px, 12vw) 1fr;
   grid-template-rows: minmax(45px, 5vh) 1fr minmax(40px, 4vh);
 
+
+
+
   .menuWrap {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -22,6 +25,12 @@
   .navWrap{
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
     overflow: auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    .navWrap {
+      display: none;
+    }
   }
 
   .mainWrap {
@@ -35,6 +44,13 @@
       background-color: style.$whiteColor;
       border-radius: 3px;
       box-shadow: 0 0 10px 0px rgba($color: #000000, $alpha: .2);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .mainWrap {
+      grid-column-start: 1;
+      grid-column-end: 3;
     }
   }
 
