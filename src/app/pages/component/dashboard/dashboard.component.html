@@ -33,7 +33,7 @@
 
   <!--  -->
   <section class="chartWrap">
-    <div class="marketingWrap">
+    <div class="serviceWrap">
       <div class="doughnutCharWrap">
         <app-chart-js
           *ngIf="doughnutChartData"
@@ -46,7 +46,7 @@
         </app-chart-js>
         <p class="doughnutTotal">$1.22M</p>
       </div>
-      <div class="marketingItemWrap">
+      <div class="serviceItemWrap">
         <ul *ngIf="marketingData?.service">
           <li *ngFor="let data of marketingData?.service">
             {{ data }}

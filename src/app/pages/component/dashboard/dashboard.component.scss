@@ -80,13 +80,12 @@ section{
 // chartWrap start
 .chartWrap{
   display: grid;
-  grid-template-columns: minmax(30vw, 450px) 1fr;
+  grid-template-columns: minmax(30vw, 400px) 1fr;
   height: fit-content;
   border-top: 1px dotted $dashBoardMainColor;
   border-bottom: 1px dotted $dashBoardMainColor;
 
-  .marketingWrap {
-    height: 100%;
+  .serviceWrap {
     padding: 1rem 0;
     border-right: 1px dotted $dashBoardMainColor;
 
@@ -103,7 +102,7 @@ section{
       }
     }
 
-    .marketingItemWrap{
+    .serviceItemWrap{
       display: grid;
       grid-template-columns: 1fr 1fr;
       ul{
@@ -120,6 +119,8 @@ section{
   }
 
   .targetRateWrap{
+    width: 100%;
+    height: 430px;
     padding: 1rem 1.25rem;
   }
 }
@@ -128,13 +129,19 @@ section{
   .chartWrap{
     grid-template-columns: 1fr;
 
-    .marketingWrap {
+    .serviceWrap {
       border-right: none;
     }
 
+    .doughnutCharWrap{
+      width: 100%;
+      height: 200px;
+    }
+
     .targetRateWrap{
+      width: 100%;
+      height: 300px;
       padding: 1rem 1.25rem;
-      height: 400px;
     }
   }
 }
@@ -169,6 +176,14 @@ section{
       }
     }
   }
+}
 
+@media screen and (max-width: 480px) {
+  table {
+    td{
+      min-width: max-content;
+      padding: 0 .25rem;
+    }
+  }
 }
 // tableWrap end
