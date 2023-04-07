@@ -1,16 +1,38 @@
 <div>
   <section class="barChartWrap">
     <app-chart-js
-      [data]="barChartData"
-      [options]="barChartOptions"
-      [type]="barChartType"
-      (chartHover)="chartHovered($event)"
-      (chartClick)="chartClicked($event)"
+      [type]="mixedChartType"
+      [data]="mixedChartData"
+      [options]="mixedChartOptions"
+      (chartHover)="chartHovered($event, 'mixed')"
+      (chartClick)="chartClicked($event, 'mixed')"
       >
     </app-chart-js>
   </section>
 
-  <section class="tablePieWrap">
+  <section class="card">
+    <div>
+      <app-chart-js
+        [type]="lineChartType"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        (chartHover)="chartHovered($event, 'line')"
+        (chartClick)="chartClicked($event, 'line')">
+      </app-chart-js>
+    </div>
+
+    <div>
+      <app-chart-js
+        [type]="barChartType"
+        [data]="barChartData"
+        [options]="barChartOptions"
+        (chartHover)="chartHovered($event, 'bar')"
+        (chartClick)="chartClicked($event, 'bar')">
+      </app-chart-js>
+    </div>
+  </section>
+
+  <section class="card">
     <div class="tableWrap">
       <table
         mat-table
@@ -117,11 +139,11 @@
 
     <div class="pieChartWrap">
       <app-chart-js
+        [type]="pieChartType"
         [data]="pieChartData"
         [options]="pieChartOptions"
-        [type]="pieChartType"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"
+        (chartHover)="chartHovered($event, 'pie')"
+        (chartClick)="chartClicked($event, 'pie')"
         >
       </app-chart-js>
     </div>

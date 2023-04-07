@@ -1,13 +1,16 @@
 @use 'src/styles' as style;
 
+section:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
 .barChartWrap{
   width: 100%;
   min-height: 300px;
-  height: 35vh;
-  margin-bottom: 2rem;
+  height: 30vh;
 }
 
-.tablePieWrap{
+.card{
   display: flex;
   width: 100%;
   height: calc(50vh - 4rem);

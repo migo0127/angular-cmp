@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { CHARTJSTYPE, ProductDashboard } from 'src/app/model';
+import { DashboardService, DashboardUtilService } from 'src/app/service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,73 +13,72 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  barChartType: ChartType;
+  mixedChartType: ChartType;
+  mixedChartData: ChartData;
+  mixedChartOptions: ChartConfiguration['options'];
+
+  lineChartType: ChartType;
+  lineChartData: ChartConfiguration['data'];
+  lineChartOptions: ChartConfiguration['options'];
   barChartData: ChartData;
+
+  barChartType: ChartType;
   barChartOptions: ChartConfiguration['options'];
+
+  pieChartType: ChartType;
+  pieChartData: ChartData;
+  pieChartOptions: ChartConfiguration['options'];
 
   tableData: ProductDashboard[];
   displayedTableColumns: string[] = ['index', 'name', 'price', 'qty', 'total'];
 
-  pieChartType: ChartType;
-  pieChartData:  ChartData<'pie', number[], string | string[]>;
-  pieChartOptions: ChartConfiguration['options'];
-
-  constructor() {
-
-  }
+  constructor(
+    private dashboardService: DashboardService,
+    private dashboardUtilService: DashboardUtilService,
+  ) {  }
 
   ngOnInit(): void {
-    this.initBarChartData();
+    this.initChartData();
     this.initTableData();
-    this.initPieChartData();
   }
 
-  initBarChartData(): void {
-    this.barChartType = CHARTJSTYPE.BAR;
-
-    this.barChartData = {
-      labels: [ '2023/01', '2023/02', '2023/03', '2023/04' ],
-      datasets: [
-        {
-          type: CHARTJSTYPE.BAR,
-          data: [ 65, 59, 80, 81 ],
-          label: '銷售額度(萬)',
-          borderColor: 'rgb(255, 99, 132)',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)'
-        },
-        {
-          type: CHARTJSTYPE.LINE,
-          data: [ 28, 48, 40, 19 ],
-          label: '註冊人數(個)',
-          borderColor: 'rgb(54, 162, 235)',
-          backgroundColor: 'rgba(54, 162, 235, 0.5)'
-
-        }
-      ]
-    };
-
-    this.barChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: {},
-        y: {
-          min: 0,
-          max: 100
-        }
-      },
-      plugins: {
-        legend: {
+  initChartData(): void {
+    this.dashboardService.getAllChartData().subscribe((data: any) => {
+      if(data['mixedChartData']){
+        this.mixedChartType = 'bar';
+        this.mixedChartData = data['mixedChartData'];
+        const options: any = this.dashboardUtilService.getBaseBarChartOptions();
+        options.plugins.title = {
           display: true,
-          position: 'bottom'
-        },
-        datalabels: {
-          anchor: 'end',
-          align: 'end'
+          text: 'test',
+          font: {
+            size: 18,
+            weight: 'normal'
+          }
         }
+        // options.plugins.legend.position = 'bottom';
+        this.mixedChartOptions = options as ChartConfiguration['options'];
       }
-    };
-
+      if(data['lineChartData']){
+        this.lineChartType = 'line';
+        this.lineChartData = data['lineChartData'];
+        const options: any = this.dashboardUtilService.getBaseLineChartOptions();
+        this.lineChartOptions = options as ChartConfiguration['options'];
+      }
+      if(data['barChartData']){
+        this.barChartType = 'bar';
+        this.barChartData = data['barChartData'];
+        const options: any = this.dashboardUtilService.getBaseBarChartOptions();
+        this.barChartOptions = options as ChartConfiguration['options'];
+      }
+      if(data['pieChartData']){
+        this.pieChartType = 'pie';
+        this.pieChartData = data['pieChartData'];
+        const options: any = this.dashboardUtilService.getPieChartOptions();
+        options.plugins.legend.position = 'right';
+        this.pieChartOptions  = options as ChartConfiguration['options'];
+      }
+    });
   }
 
   initTableData(): void {
@@ -157,44 +157,14 @@ export class DashboardComponent implements OnInit {
     ]
   }
 
-  initPieChartData(): void {
-    this.pieChartType = CHARTJSTYPE.PIE;
-
-    this.pieChartData = {
-      labels: [ 'Bank','Credit Card', 'Line Pay', 'Jkp Pay', 'Cash' ],
-      datasets: [ {
-        data: [ 4, 43, 36, 15, 2]
-      } ]
-    };
-
-    this.pieChartOptions = {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: true,
-          position: 'right',
-        },
-        datalabels: {
-          formatter: (value, ctx) => {
-            if (ctx.chart.data.labels) {
-              return ctx.chart.data.labels[ctx.dataIndex];
-            }
-          },
-        },
-      }
-    };
-
-  }
-
-
   // events
-  chartClicked(event: any): void {
+  chartClicked(event: any, chartType: string): void {
     if(!event) return;
-    // console.log(event);
+    // console.log([event, chartType]);
   }
 
-  chartHovered(event: any): void {
+  chartHovered(event: any, chartType: string): void {
     if(!event) return;
-    // console.log(event);
+    // console.log([event, chartType]);
   }
 }
