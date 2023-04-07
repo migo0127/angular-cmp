@@ -1,0 +1,18 @@
+{
+  "marketingData": {
+    "service": [
+      "Service",
+      "Virtual Machines dv2 $91.6k",
+      "Storage $183k",
+      "Virtual Machines ip $138k",
+      "SQL Database $138k",
+      "Compute $183k"
+    ],
+    "network": [
+      "Network",
+      "Virtual Network $91.6k",
+      "DNS $183k",
+      "App Gateway $138k"
+    ]
+  }
+}
