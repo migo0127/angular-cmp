@@ -4,12 +4,17 @@
     *ngIf="sideNavList"
     class="mainList">
     <ng-container *ngFor="let list of sideNavList">
-      <li (click)="navigateTo(list)">{{ list.label }}</li>
+
+      <li (click)="navigateTo(list)">
+        <mat-icon [fontIcon]="list.icon"></mat-icon>
+        {{ list.label }}
+      </li>
       <ng-container *ngIf="list?.children && list.visible">
         <ul class="childrenList">
           <ng-container *ngFor="let child of list.children">
-            <li
-              (click)="navigateTo(child)">{{ child.label }}
+            <li (click)="navigateTo(child)">
+              <mat-icon [fontIcon]="child.icon"></mat-icon>
+              {{ child.label }}
             </li>
           </ng-container>
         </ul>

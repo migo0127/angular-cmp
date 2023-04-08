@@ -2,16 +2,32 @@
   "sideNav": [
     {
       "label": "Dashboard",
-      "url": "/pages/dashboard"
+      "url": "/pages/dashboard",
+      "icon": "dashboard"
     },
     {
       "label": "Order",
       "url": "",
+      "icon": "grading",
       "visible": false,
       "children": [
         {
           "label": "list",
-          "url": "/pages/order/list"
+          "url": "/pages/order/list",
+          "icon": "list_alt"
+        }
+      ]
+    },
+    {
+      "label": "Analysis",
+      "url": "",
+      "icon": "analytics",
+      "visible": false,
+      "children": [
+        {
+          "label": "Period",
+          "url": "/pages/analysis/period",
+          "icon": "calendar_month"
         }
       ]
     }

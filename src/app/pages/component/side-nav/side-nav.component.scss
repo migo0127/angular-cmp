@@ -7,15 +7,23 @@
   padding-top: 1rem;
 
   ul {
+    height: 30px;
+    color: rgb(41, 41, 41);
     font-size: 1.05rem;
     list-style-type: none;
-    height: 30px;
     margin: 0;
     padding: 0rem 0 1rem 1.5rem;
 
     li {
       cursor: pointer;
-      padding: .25rem 0;
+      padding: .35rem 0;
+
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        color: style.$mainColor;
+        margin-right: .25rem;
+      }
     }
   }
 
