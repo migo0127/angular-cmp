@@ -1,9 +1,19 @@
 <section id="sidenavWrap">
-  <ul>
-    <li (click)="navigateTo('dashboard')">
-      Dashboard
-    </li>
-    <li>2</li>
-    <li>3</li>
+
+  <ul
+    *ngIf="sideNavList"
+    class="mainList">
+    <ng-container *ngFor="let list of sideNavList">
+      <li (click)="navigateTo(list)">{{ list.label }}</li>
+      <ng-container *ngIf="list?.children && list.visible">
+        <ul class="childrenList">
+          <ng-container *ngFor="let child of list.children">
+            <li
+              (click)="navigateTo(child)">{{ child.label }}
+            </li>
+          </ng-container>
+        </ul>
+      </ng-container>
+    </ng-container>
   </ul>
 </section>

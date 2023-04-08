@@ -1,7 +1,21 @@
 {
-  "dashboard": "/pages/dashboard",
-  "order": [
-    { "list": "/pages/order/list" },
-    { "add": "/pages/order/add" }
+  "sideNav": [
+    {
+      "label": "Dashboard",
+      "url": "/pages/dashboard"
+    },
+    {
+      "label": "Order",
+      "url": "",
+      "visible": false,
+      "children": [
+        {
+          "label": "list",
+          "url": "/pages/order/list"
+        }
+      ]
+    }
   ]
 }
+
+
