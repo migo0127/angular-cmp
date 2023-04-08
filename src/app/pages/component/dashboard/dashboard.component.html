@@ -72,10 +72,6 @@
     </div>
   </section>
 
-  <section>
-
-  </section>
-
   <section
     *ngIf="tableData"
     class="tableWrap">
@@ -161,7 +157,7 @@
             mat-cell
             *matCellDef="let row"
             >
-            {{ row.total | number }}
+            ${{ row.total | number }}
           </td>
         </ng-container>
 

@@ -12,9 +12,6 @@
   grid-template-columns:  minmax(230px, 12vw) 1fr;
   grid-template-rows: minmax(45px, 5vh) 1fr minmax(40px, 4vh);
 
-
-
-
   .menuWrap {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -27,7 +24,7 @@
     overflow: auto;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 541px) {
     .navWrap {
       display: none;
     }
@@ -38,7 +35,7 @@
     padding: 1rem;
     overflow: auto;
     .mainContainer{
-      width: calc(100% - 2.5rem);
+      width: 100%;
       min-height: fit-content;
       padding: 1rem;
       background-color: style.$whiteColor;
@@ -47,7 +44,7 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 541px) {
     .mainWrap {
       grid-column-start: 1;
       grid-column-end: 3;
