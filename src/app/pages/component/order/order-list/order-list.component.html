@@ -1,2 +1,204 @@
-<p>list works!</p>
+<div>
+  <section class="searchWrap">
+    <form [formGroup]="searchForm">
+      <!-- Category -->
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select
+          formControlName="category"
+        >
+          <mat-option
+            *ngFor="let category of categoryList"
+            [value]="category"
+            >
+            {{ category }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Product -->
+      <mat-form-field>
+        <mat-label>Product</mat-label>
+        <mat-select
+          multiple
+          formControlName="product"
+          >
+          <mat-option
+            *ngFor="let product of productList"
+            [value]="product"
+            >
+            {{ product }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Price -->
+      <mat-form-field>
+        <mat-label>Price Area</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="price"
+          maxlength="9"
+          >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Sale Qty Area</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="saleQty"
+          maxlength="9"
+          >
+      </mat-form-field>
+
+      <div class="totalWrap">
+        <div>
+          <label>Total:</label>
+          <span>${{ +totalControl.value | number }}</span>
+        </div>
+        <mat-slider
+          *ngIf="areaRange"
+          thumbLabel
+          [displayWith]="formatLabel"
+          formControlName="total"
+          tickInterval="1000"
+          step="1000"
+          [min]="areaRange.totalMin"
+          [max]="areaRange.totalMax"
+          aria-label="units">
+        </mat-slider>
+      </div>
+
+      <div class="operatorWarp">
+        <mat-radio-group
+          formControlName="operator"
+          aria-label="Select an option"
+          >
+          <mat-radio-button value="0">小於(含)</mat-radio-button>
+          <mat-radio-button value="1">大於(含)</mat-radio-button>
+          <mat-radio-button value="2">等於</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+    </form>
+  </section>
+
+  <section class="btnWrap ">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="clearSearch()"
+      >
+      Clear
+    </button>
+  </section>
+
+  <section class="tableWrap">
+    <table
+      mat-table
+      matSort
+      [dataSource]="dataSource"
+      class="table">
+      <!-- category Column -->
+      <ng-container matColumnDef="category">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          >
+          Category
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          >
+          {{ element.category }}
+        </td>
+      </ng-container>
+      <!-- product Column -->
+      <ng-container matColumnDef="product">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          >
+          Product
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          >
+          {{ element.product }}
+        </td>
+      </ng-container>
+      <!-- price Column -->
+      <ng-container matColumnDef="price">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          >
+          Price
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          >
+          ${{ +element.price | number }}
+        </td>
+      </ng-container>
+      <!-- saleQty Column -->
+      <ng-container matColumnDef="saleQty">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          >
+          Sale Qty
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          >
+          {{ +element.saleQty | number }}
+        </td>
+      </ng-container>
+      <!-- total Column -->
+      <ng-container matColumnDef="total">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          >
+          Total
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          >
+          ${{ +element.total | number }}
+        </td>
+      </ng-container>
+
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+        >
+      </tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns;"
+        >
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="pageSizeOptions"
+      showFirstLastButtons
+      >
+    </mat-paginator>
+  </section>
+</div>
 

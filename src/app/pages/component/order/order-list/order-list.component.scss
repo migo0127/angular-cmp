@@ -1,0 +1,55 @@
+@use 'src/styles' as style;
+
+.searchWrap {
+  form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    & > mat-form-field, & > div {
+      width: calc(100% - 2rem);
+    }
+  }
+
+  .totalWrap {
+    display: flex;
+    flex-direction: column;
+
+    label{
+      color: #757575;
+      margin-right: .5rem;
+    }
+    span {
+      font-size: 1.05rem;
+      color: style.$mainColor;
+    }
+
+    mat-slider {
+      width: 100%;
+    }
+  }
+
+  .operatorWarp {
+    margin: auto 0;
+    mat-radio-button{
+      margin-right: .75rem;
+    }
+  }
+}
+
+.btnWrap {
+  margin-bottom: 1.25rem;
+}
+
+.tableWrap {
+  .table{
+    width: 100%;
+
+    th, td {
+      width: 100px;
+      word-break: break-all;
+    }
+    td {
+      padding: 0 .25rem;
+    }
+  }
+}
