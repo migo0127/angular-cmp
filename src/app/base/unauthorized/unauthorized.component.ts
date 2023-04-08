@@ -16,7 +16,7 @@ export class UnauthorizedComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authService.isLoggedIn){
-      this.router.navigate(['/pages/home']);
+      this.router.navigate(['/pages/dashboard']);
     }else{
       this.router.navigate(['/login']);
     }

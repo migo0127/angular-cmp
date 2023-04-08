@@ -12,7 +12,7 @@
       "visible": false,
       "children": [
         {
-          "label": "list",
+          "label": "List",
           "url": "/pages/order/list",
           "icon": "list_alt"
         }
