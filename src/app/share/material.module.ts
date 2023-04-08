@@ -13,6 +13,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 const MATERIAL_MODULE = [
   MatButtonModule,
@@ -27,6 +31,10 @@ const MATERIAL_MODULE = [
   MatListModule,
   MatGridListModule,
   MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatSelectModule,
+  MatRadioModule,
 ]
 
 const MATERIAL_COMPONENT = [
