@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrderComponent } from './component/order/order.component';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 
@@ -10,7 +9,10 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'order', component: OrderComponent },
+      { path: 'order',
+        loadChildren: () => import('./component/order/order.module')
+          .then(m => m.OrderModule)
+      },
       { path: '**', redirectTo: 'dashboard' },
     ]
   },
