@@ -3,11 +3,11 @@ import { AuthService, UserInfoService,  } from 'src/app/service';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class OrderComponent implements OnInit {
 
   constructor(
     private authService: AuthService,

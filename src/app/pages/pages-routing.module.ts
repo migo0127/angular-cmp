@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './component/home/home.component';
+import { OrderComponent } from './component/order/order.component';
 import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './component/dashboard/dashboardomponent';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '',
@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'home', component: HomeComponent },
+      { path: 'order', component: OrderComponent },
       { path: '**', redirectTo: 'dashboard' },
     ]
   },
