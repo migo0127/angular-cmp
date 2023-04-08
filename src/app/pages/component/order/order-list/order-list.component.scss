@@ -1,5 +1,6 @@
 @use 'src/styles' as style;
 
+// searchWrap start
 .searchWrap {
   form {
     display: grid;
@@ -31,15 +32,63 @@
   .operatorWarp {
     margin: auto 0;
     mat-radio-button{
-      margin-right: .75rem;
+      margin-right: .55rem;
+    }
+
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 390px) {
+  .operatorWarp {
+    mat-radio-group {
+      display: flex;
+      flex-direction: column;
+    }
+    mat-radio-button {
+      margin-right: 0;
+      margin-bottom: .75rem;
     }
   }
 }
+
+@media screen and (max-width: 540px) {
+  .searchWrap {
+    form {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .searchWrap {
+    form {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .operatorWarp {
+    margin-top: 1.05rem !important;
+    mat-radio-group {
+      display: flex;
+      flex-direction: row;
+    }
+    mat-radio-button {
+      margin-right: .75rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .btnWrap {
+    text-align: right;
+  }
+}
+// searchWrap end
 
 .btnWrap {
   margin-bottom: 1.25rem;
 }
 
+// tableWrap start
 .tableWrap {
   .table{
     width: 100%;
@@ -48,8 +97,21 @@
       width: 100px;
       word-break: break-all;
     }
+
     td {
       padding: 0 .25rem;
     }
+
+    td.price {
+      color: style.$mainColor;
+      text-decoration: underline;
+    }
   }
 }
+
+@media screen and (max-width: 540px){
+  th, td {
+    width: 50px;
+  }
+}
+// tableWrap end

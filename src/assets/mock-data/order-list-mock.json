@@ -15,6 +15,6 @@
     { "category": "電腦配件", "product": "滑鼠墊", "saleQty": "234", "price": "7", "total": "1638" },
     { "category": "電腦配件", "product": "耳機架", "saleQty": "103", "price": "12", "total": "1236" },
     { "category": "電腦軟體", "product": "Office 2019", "saleQty": "57", "price": "28", "total": "1596" },
-    { "category": "電腦軟體", "product": "Windows11", "saleQty": "39", "price": "55", "total": "2145" }
+    { "category": "電腦軟體", "product": "Windows 11", "saleQty": "39", "price": "55", "total": "2145" }
   ]
 }
