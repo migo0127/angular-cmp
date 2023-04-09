@@ -1,8 +1,11 @@
 <div>
 
-  <section >
+  <section>
     <p>Custom Period Demo：
-      <span class="text">{{ date | json }}</span>
+      <span
+        *ngIf="date"
+        class="text">{{ date | json }}
+      </span>
     </p>
     <app-period (dateChange)="onDateChange($event)">
     </app-period>
