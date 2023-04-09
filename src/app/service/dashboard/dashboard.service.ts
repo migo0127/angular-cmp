@@ -25,7 +25,7 @@ export class DashboardService {
   }
 
   getAllChartData(): Observable<any> {
-    return this.http.get<any>('assets/mock-data/chart-data-mock.json');
+    return this.http.get<any>('assets/mock-data/dashboard-chart-data-mock.json');
   }
 
   getTableData(): Observable<any>{

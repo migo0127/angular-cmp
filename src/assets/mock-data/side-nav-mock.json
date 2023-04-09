@@ -19,17 +19,9 @@
       ]
     },
     {
-      "label": "Analysis",
-      "url": "",
-      "icon": "analytics",
-      "visible": false,
-      "children": [
-        {
-          "label": "Payment",
-          "url": "/pages/analysis/payment",
-          "icon": "credit_card"
-        }
-      ]
+      "label": "Demo",
+      "url": "/pages/demo",
+      "icon": "design_services"
     }
   ]
 }
