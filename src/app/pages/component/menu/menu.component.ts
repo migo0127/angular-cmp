@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   @ViewChild('userInfoDialog') userInfoDialog: TemplateRef<any>;
 
-  logoUrl: string = '../../../assets/img/logo-1.png';
+  logoUrl: string = 'assets/img/login-1.png';
   userInfo: UserInfo;
   userInfoDisplayedColumns: string[] = [
     'role', 'name', 'mail', 'github'
