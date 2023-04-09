@@ -2,7 +2,7 @@ import { DatePipe } from "@angular/common";
 import { Component, EventEmitter, OnInit, Output, ViewChild } from "@angular/core";
 import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDateRangePicker } from "@angular/material/datepicker";
-import { DATE } from "src/app/model";
+import { DATE, PeriodType } from "src/app/model";
 
 @Component({
   selector: 'app-period',
@@ -14,7 +14,7 @@ export class PeriodComponent implements OnInit {
   @ViewChild('picker') picker: MatDateRangePicker<any>;
   @Output() dateChange: EventEmitter<string | string[]> = new EventEmitter<string | string[]>();
 
-  dateRange: any[] = [
+  dateRange: PeriodType[] = [
     { label: 'Last 7 Days', value: '7' },
     { label: 'Last 14 Days', value: '14' },
     { label: 'Last 1 Months', value: '1' },
@@ -51,10 +51,12 @@ export class PeriodComponent implements OnInit {
       startDate: [''],
       endDate: ['' ]
     });
+
    }
 
   ngOnInit(): void {
     this.getMinMaxDateRange();
+    this.onSelectedDateOption(this.dateControl.value);
     this.bindStartDateEndDateValueChanges();
   }
 
