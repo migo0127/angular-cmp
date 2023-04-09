@@ -35,8 +35,8 @@ export class LoginService {
   }
 
   clearSessionStorage(): void {
-    sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('userInfo');
+    sessionStorage.removeItem('isLoggedIn');
   }
 
   getUserInfo(): void {
