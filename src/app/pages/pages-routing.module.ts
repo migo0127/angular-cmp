@@ -13,6 +13,10 @@ const routes: Routes = [
         loadChildren: () => import('./component/order/order.module')
           .then(m => m.OrderModule)
       },
+      { path: 'analysis',
+        loadChildren: () => import('./component/analysis/analysis.module')
+          .then(m => m.AnalysisModule)
+      },
       { path: '**', redirectTo: 'dashboard' },
     ]
   },

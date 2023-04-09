@@ -25,9 +25,9 @@
       "visible": false,
       "children": [
         {
-          "label": "Period",
-          "url": "/pages/analysis/period",
-          "icon": "calendar_month"
+          "label": "Payment",
+          "url": "/pages/analysis/payment",
+          "icon": "credit_card"
         }
       ]
     }
