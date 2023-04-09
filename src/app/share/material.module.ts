@@ -20,6 +20,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const MATERIAL_MODULE = [
   MatButtonModule,
@@ -41,6 +43,8 @@ const MATERIAL_MODULE = [
   MatTooltipModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatDividerModule,
+  MatProgressBarModule,
 ]
 
 const MATERIAL_COMPONENT = [
