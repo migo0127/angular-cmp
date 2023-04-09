@@ -29,5 +29,42 @@
       margin: 0 1rem;
     }
   }
+}
 
+.userInfoDialogWrap {
+  width: 22vw;
+  min-width: 425px;
+  .mat-dialog-content {
+    margin-bottom: 1rem;
+    p {
+      display: grid;
+      grid-template-columns: minmax(50px, 60px) 1fr;
+      padding: .5rem;
+      border-bottom: 1px solid  #c2c2c2;
+    }
+    a {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .userInfoDialogWrap {
+    width: 250px;
+    min-width: 250px;
+    .mat-dialog-content {
+      p {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+      span {
+        word-wrap: break-word;
+        padding: .5rem 0;
+      }
+    }
+  }
+
+  .mat-dialog-actions {
+    justify-content: flex-end;
+  }
 }

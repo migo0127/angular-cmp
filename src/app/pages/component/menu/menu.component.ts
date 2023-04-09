@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/model';
 import { LoginService, UserInfoService } from 'src/app/service';
@@ -10,11 +11,17 @@ import { LoginService, UserInfoService } from 'src/app/service';
 })
 export class MenuComponent implements OnInit {
 
+  @ViewChild('userInfoDialog') userInfoDialog: TemplateRef<any>;
+
   logoUrl: string = '../../../assets/img/logo-1.png';
   userInfo: UserInfo;
+  userInfoDisplayedColumns: string[] = [
+    'role', 'name', 'mail', 'github'
+  ];
 
   constructor(
     private router: Router,
+    private dialog: MatDialog,
     private loginService: LoginService,
     private userInfoService: UserInfoService,
   ) {}
@@ -25,6 +32,10 @@ export class MenuComponent implements OnInit {
 
   onClickLogo(): void {
     this.router.navigate(['/pages/dashboard']);
+  }
+
+  showUserInfo(): void {
+    this.dialog.open(this.userInfoDialog);
   }
 
   onLogout(): void {

@@ -5,6 +5,7 @@ import { MaterialModule } from './material.module';
 import { ChartJsComponent } from './component/chart-js/chart-js.component';
 import { NgChartsModule } from 'ng2-charts';
 import { PeriodComponent } from './component/period/period.component';
+import { CapitalizePipe } from './pipe/capitalize.pipe';
 
 const ANGULAR_MODULE = [
   FormsModule,
@@ -19,6 +20,7 @@ const COMMON_COMPONENT = [
 
 @NgModule({
   declarations: [
+    CapitalizePipe,
     COMMON_COMPONENT,
   ],
   imports: [
@@ -29,10 +31,11 @@ const COMMON_COMPONENT = [
   exports: [
     MaterialModule,
     NgChartsModule,
+    CapitalizePipe,
     ANGULAR_MODULE,
     COMMON_COMPONENT
   ],
-  providers: [DatePipe],
+  providers:  [DatePipe ],
   bootstrap: []
 })
 export class ShareModule { }

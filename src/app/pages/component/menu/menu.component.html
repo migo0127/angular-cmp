@@ -9,7 +9,12 @@
         (click)="onClickLogo()">
     </section>
     <section class="userInfoWrap">
-      <span>{{ userInfo.name }}</span>
+      <span
+        class="cursor"
+        (click)="showUserInfo()"
+        >
+        {{ userInfo.name }}
+      </span>
       <span
         class="cursor"
         (click)="onLogout()">
@@ -18,4 +23,36 @@
     </section>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<ng-template #userInfoDialog>
+  <section class="userInfoDialogWrap">
+    <h1 mat-dialog-title>
+      UserInfo
+    </h1>
+
+    <div mat-dialog-content>
+      <p *ngFor="let user of userInfoDisplayedColumns">
+        <span>{{ user | capitalize }}：</span>
+        <span *ngIf="user !== 'github'">{{ userInfo[user] }}</span>
+        <span *ngIf="user === 'github'">
+          <a
+            [href]="userInfo[user]"
+            target="_blank">
+            {{ userInfo[user] }}
+          </a>
+        </span>
+      </p>
+    </div>
+
+    <div mat-dialog-actions>
+      <button
+        mat-raised-button
+        mat-dialog-close
+        color="primary"
+        >
+        Close
+      </button>
+    </div>
+  </section>
+</ng-template>
 

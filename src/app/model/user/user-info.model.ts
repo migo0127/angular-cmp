@@ -4,5 +4,6 @@ export interface UserInfo {
   role: string;
   permissions: string;
   mail: string;
-  mobile: string;
+  github: string;
+  [x: string]: any;
 }
