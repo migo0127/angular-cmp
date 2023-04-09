@@ -1,0 +1,20 @@
+{
+  "orderList": [
+    { "category": "PC Hardware", "product": "Graphics Card", "saleQty": "3764", "price": "170", "total": "639880", "label": "graphicsCard" },
+    { "category": "PC Hardware", "product": "CPU", "saleQty": "1904", "price": "200", "total": "380800", "label": "cpu" },
+    { "category": "PC Accessories", "product": "Gaming Keyboard", "saleQty": "2964", "price": "127", "total": "376428", "label": "gamingKeyboard" },
+    { "category": "PC Hardware", "product": "Screen", "saleQty": "264", "price": "120", "total": "31680", "label": "screen" },
+    { "category": "PC Accessories", "product": "Gaming Headset", "saleQty": "432", "price": "135", "total": "58320", "label": "gamingHeadset" },
+    { "category": "PC Software", "product": "Office 2021", "saleQty": "130", "price": "40", "total": "5200", "label": "office2021" },
+    { "category": "PC Accessories", "product": "Gaming Mouse", "saleQty": "643", "price": "100", "total": "64300", "label": "gamingMouse" },
+    { "category": "PC Software", "product": "Office 365", "saleQty": "198", "price": "75", "total": "14850", "label": "office365" },
+    { "category": "PC Accessories", "product": "USB", "saleQty": "2134", "price": "10", "total": "21340", "label": "usb" },
+    { "category": "PC Hardware", "product": "Memory", "saleQty": "1034", "price": "110", "total": "113740", "label": "memory" },
+    { "category": "PC Software", "product": "Adobe", "saleQty": "55", "price": "45", "total": "2475", "label": "adobe" },
+    { "category": "PC Accessories", "product": "Cooling Rack", "saleQty": "561", "price": "5", "total": "2805", "label": "coolingRack" },
+    { "category": "PC Accessories", "product": "Mouse Pad", "saleQty": "234", "price": "7", "total": "1638", "label": "mousePad" },
+    { "category": "PC Accessories", "product": "Headphone Stand", "saleQty": "103", "price": "12", "total": "1236", "label": "headphoneStand" },
+    { "category": "PC Software", "product": "Office 2019", "saleQty": "57", "price": "28", "total": "1596", "label": "office2019" },
+    { "category": "PC Software", "product": "Windows 11", "saleQty": "39", "price": "55", "total": "2145", "label": "windows11" }
+  ]
+}

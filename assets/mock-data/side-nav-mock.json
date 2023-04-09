@@ -1,0 +1,29 @@
+{
+  "sideNav": [
+    {
+      "label": "Dashboard",
+      "url": "/pages/dashboard",
+      "icon": "dashboard"
+    },
+    {
+      "label": "Order",
+      "url": "",
+      "icon": "grading",
+      "visible": false,
+      "children": [
+        {
+          "label": "List",
+          "url": "/pages/order/list",
+          "icon": "list_alt"
+        }
+      ]
+    },
+    {
+      "label": "Demo",
+      "url": "/pages/demo",
+      "icon": "design_services"
+    }
+  ]
+}
+
+

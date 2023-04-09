@@ -1,0 +1,28 @@
+{
+  "costData": [
+    {
+      "type": "month",
+      "icon": "30fps",
+      "current": "157911",
+      "last": "137911"
+    },
+    {
+      "type": "season",
+      "icon": "60fps",
+      "current": "643251",
+      "last": "603251"
+    },
+    {
+      "type": "half",
+      "icon": "attach_money",
+      "current": "946314",
+      "last": "923314"
+    },
+    {
+      "type": "year",
+      "icon": "paid",
+      "current": "1976121",
+      "last": "1876121"
+    }
+  ]
+}

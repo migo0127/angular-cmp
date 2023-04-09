@@ -1,0 +1,75 @@
+{
+  "tableData": [
+    {
+      "index": 1,
+      "name": "Virtual Machines",
+      "price": 65,
+      "qty": 101,
+      "total": 6565
+
+    },
+    {
+      "index": 2,
+      "name": "SQL Database",
+      "price": 55,
+      "qty": 92,
+      "total": 5060
+    },
+    {
+      "index": 3,
+      "name": "Storage",
+      "price": 100,
+      "qty": 44,
+      "total": 4400
+    },
+    {
+      "index": 4,
+      "name": "Web Apps",
+      "price": 30,
+      "qty": 131,
+      "total": 3930
+    },
+    {
+      "index": 5,
+      "name": "SQL Data",
+      "price": 60,
+      "qty": 51,
+      "total": 3060
+    },
+    {
+      "index": 6,
+      "name": "Stream Analytics",
+      "price": 6,
+      "qty": 431,
+      "total": 2586
+    },
+    {
+      "index": 7,
+      "name": "Redis Cache",
+      "price": 3,
+      "qty": 631,
+      "total": 1893
+    },
+    {
+      "index": 8,
+      "name": "Batch",
+      "price": 12,
+      "qty": 100,
+      "total": 1200
+    },
+    {
+      "index": 9,
+      "name": "Virtual Machines Scale Sets",
+      "price": 9,
+      "qty": 82,
+      "total": 738
+    },
+    {
+      "index": 10,
+      "name": "Power BI",
+      "price": 21,
+      "qty": 32,
+      "total": 672
+    }
+  ]
+}
