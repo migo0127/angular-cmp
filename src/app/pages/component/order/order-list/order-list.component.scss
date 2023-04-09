@@ -115,3 +115,34 @@
   }
 }
 // tableWrap end
+
+.historyPriceChartWrap {
+  display: grid;
+  width: 65vw;
+  height: 65vh;
+  grid-template: 1fr;
+  grid-template-rows: minmax(6vh, 50px) 1fr minmax(6vh, 50px);
+  align-items: center;
+  h1 {
+    border-bottom: 2px double style.$mainBackgroundColor;
+  }
+
+  .mat-dialog-content {
+    height: 100%;
+
+    .chartContainer {
+      height: 100%;
+    }
+
+  }
+
+  .mat-dialog-actions {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .historyPriceChartWrap {
+    height: 45vh;
+  }
+}

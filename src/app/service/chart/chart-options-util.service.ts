@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardUtilService {
+export class ChartOptionsUtilService {
 
   constructor() {}
 
@@ -14,7 +14,6 @@ export class DashboardUtilService {
       scales: {
         y: {
           beginAtZero: true,
-          max: 100
         }
       },
       plugins: {

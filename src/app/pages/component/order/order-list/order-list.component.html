@@ -112,9 +112,9 @@
         </th>
         <td
           mat-cell
-          *matCellDef="let element"
+          *matCellDef="let row"
           >
-          {{ element.category }}
+          {{ row.category }}
         </td>
       </ng-container>
       <!-- product Column -->
@@ -128,9 +128,9 @@
         </th>
         <td
           mat-cell
-          *matCellDef="let element"
+          *matCellDef="let row"
           >
-          {{ element.product }}
+          {{ row.product }}
         </td>
       </ng-container>
       <!-- price Column -->
@@ -144,11 +144,11 @@
         </th>
         <td
           mat-cell
-          *matCellDef="let element"
-          (click)="onClickPrice(element)"
+          *matCellDef="let row"
+          (click)="showHistoryPrice(row)"
           class="cursor price"
           >
-          ${{ +element.price | number }}
+          ${{ +row.price | number }}
         </td>
       </ng-container>
       <!-- saleQty Column -->
@@ -162,9 +162,9 @@
         </th>
         <td
           mat-cell
-          *matCellDef="let element"
+          *matCellDef="let row"
           >
-          {{ +element.saleQty | number }}
+          {{ +row.saleQty | number }}
         </td>
       </ng-container>
       <!-- total Column -->
@@ -178,9 +178,9 @@
         </th>
         <td
           mat-cell
-          *matCellDef="let element"
+          *matCellDef="let row"
           >
-          ${{ +element.total | number }}
+          ${{ +row.total | number }}
         </td>
       </ng-container>
 
@@ -202,5 +202,37 @@
       >
     </mat-paginator>
   </section>
+
+  <ng-template #historyPriceChartDialog>
+    <section class="historyPriceChartWrap">
+      <h1 mat-dialog-title>
+        Historical Price Trends：
+        <span>{{ currentRow.product }}</span>
+      </h1>
+
+      <div mat-dialog-content>
+        <div class="chartContainer">
+          <app-chart-js
+            *ngIf="mixedChartData"
+            [type]="mixedChartType"
+            [data]="mixedChartData"
+            [options]="mixedChartOptions"
+            >
+          </app-chart-js>
+        </div>
+      </div>
+
+      <div mat-dialog-actions>
+        <button
+          mat-raised-button
+          mat-dialog-close
+          color="primary"
+          >
+          Close
+        </button>
+      </div>
+    </section>
+  </ng-template>
+
 </div>
 

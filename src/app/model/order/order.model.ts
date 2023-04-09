@@ -4,6 +4,7 @@ export interface PeriodicElement {
   saleQty: string;
   price: string;
   total: string,
+  label: string;
 }
 
 export interface OrderItemRange {

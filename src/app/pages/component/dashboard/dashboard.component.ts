@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { CHARTJSTYPE, CostData, MarketingData, ProductDashboard } from 'src/app/model';
-import { DashboardService, DashboardUtilService } from 'src/app/service';
+import { DashboardService, ChartOptionsUtilService } from 'src/app/service';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private dashboardService: DashboardService,
-    private dashboardUtilService: DashboardUtilService,
+    private chartOptionsUtilService: ChartOptionsUtilService,
   ) {  }
 
   ngOnInit(): void {
@@ -68,7 +68,7 @@ export class DashboardComponent implements OnInit {
       if(data['doughnutChartData']){
         this.doughnutChartType = CHARTJSTYPE.DOUGHNUT;
         this.doughnutChartData = data['doughnutChartData'];
-        const options: any = this.dashboardUtilService.getBaseDoughnutChartOptions();
+        const options: any = this.chartOptionsUtilService.getBaseDoughnutChartOptions();
         options.plugins.title = {
           display: true,
           text: 'Service Expenses',
@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit {
       if(data['mixedChartData']){
         // this.mixedChartType = CHARTJSTYPE.BAR;
         // this.mixedChartData = data['mixedChartData'];
-        // const options: any = this.dashboardUtilService.getBaseBarChartOptions();
+        // const options: any = this.ChartOptionsUtilService.getBaseBarChartOptions();
         // options.plugins.title = {
         //   display: true,
         //   text: 'test',
@@ -98,7 +98,7 @@ export class DashboardComponent implements OnInit {
       if(data['lineChartData']){
         this.lineChartType = CHARTJSTYPE.LINE;
         this.lineChartData = data['lineChartData'];
-        const options: any = this.dashboardUtilService.getBaseLineChartOptions();
+        const options: any = this.chartOptionsUtilService.getBaseLineChartOptions();
         options.plugins.title = {
           display: true,
           text: 'Average Usage Rate',
@@ -112,13 +112,13 @@ export class DashboardComponent implements OnInit {
       if(data['barChartData']){
         // this.barChartType = CHARTJSTYPE.BAR;
         // this.barChartData = data['barChartData'];
-        // const options: any = this.dashboardUtilService.getBaseBarChartOptions();
+        // const options: any = this.ChartOptionsUtilService.getBaseBarChartOptions();
         // this.barChartOptions = options as ChartConfiguration['options'];
       }
       if(data['pieChartData']){
         // this.pieChartType = CHARTJSTYPE.PIE;
         // this.pieChartData = data['pieChartData'];
-        // const options: any = this.dashboardUtilService.getPieChartOptions();
+        // const options: any = this.ChartOptionsUtilService.getPieChartOptions();
         // options.plugins.legend.display = false;
         // this.pieChartOptions  = options as ChartConfiguration['options'];
       }

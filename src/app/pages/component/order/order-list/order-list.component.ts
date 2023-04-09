@@ -1,13 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
-import { OPERATOR, OrderItemRange, PeriodicElement} from 'src/app/model';
+import { CHARTJSTYPE, OPERATOR, OrderItemRange, PeriodicElement} from 'src/app/model';
+import { ChartOptionsUtilService } from 'src/app/service';
 import { OrderService } from 'src/app/service/order/order.service';
-import { MaterialDialogComponent } from 'src/app/share/component/dialog/dialog.component';
 
 @Component({
   selector: 'app-order-list',
@@ -18,6 +19,7 @@ export class OrderListComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('historyPriceChartDialog') historyPriceChartDialog: TemplateRef<any>;
 
   searchForm: FormGroup;
   originDataSource: PeriodicElement[];
@@ -27,6 +29,11 @@ export class OrderListComponent implements OnInit {
   categoryList: string[];
   productList: string[];
   areaRange: OrderItemRange;
+
+  currentRow: PeriodicElement;
+  mixedChartType: ChartType;
+  mixedChartData: ChartData;
+  mixedChartOptions: ChartConfiguration['options'];
 
   get categoryControl(): AbstractControl<string> {
     return this.searchForm.get('category') as AbstractControl;
@@ -56,6 +63,7 @@ export class OrderListComponent implements OnInit {
     private fb: FormBuilder,
     private dialog: MatDialog,
     private orderService: OrderService,
+    private chartOptionsUtilService: ChartOptionsUtilService,
   ) {
     this.searchForm = this.fb.group({
       category: [''],
@@ -173,25 +181,33 @@ export class OrderListComponent implements OnInit {
 
     let filterPriceAreaData: PeriodicElement[] = filterProductData;
     if(priceValue){
-      filterPriceAreaData = filterProductData.filter(item => operator === OPERATOR.LESS ? +item.price < priceValue : operator === OPERATOR.MORE ? +item.price > priceValue : +item.price === priceValue);
+      filterPriceAreaData = filterProductData.filter(item => operator === OPERATOR.LESS ? +item.price <= priceValue : operator === OPERATOR.MORE ? +item.price >= priceValue : +item.price === priceValue);
     }
 
     let filterSaleQtyData: PeriodicElement[] = filterPriceAreaData;
     if(saleQtyValue){
-      filterSaleQtyData = filterPriceAreaData.filter(item => operator === OPERATOR.LESS ? +item.saleQty < saleQtyValue : operator === OPERATOR.MORE ? +item.saleQty > saleQtyValue : +item.saleQty === saleQtyValue);
+      filterSaleQtyData = filterPriceAreaData.filter(item => operator === OPERATOR.LESS ? +item.saleQty <= saleQtyValue : operator === OPERATOR.MORE ? +item.saleQty >= saleQtyValue : +item.saleQty === saleQtyValue);
     }
 
     let filterTotalData: PeriodicElement[] = filterSaleQtyData;
     if(totalValue){
-      filterTotalData = filterSaleQtyData.filter(item => operator === OPERATOR.LESS ? +item.total < totalValue : operator === OPERATOR.MORE ? +item.total > totalValue : +item.total === totalValue);
+      filterTotalData = filterSaleQtyData.filter(item => operator === OPERATOR.LESS ? +item.total <= totalValue : operator === OPERATOR.MORE ? +item.total >= totalValue : +item.total === totalValue);
     }
 
     // 最終符合的 tableData 需要再重新轉為 MatTableDataSource 型別
     this.createMatTableDataSource(filterTotalData);
   }
 
-  onClickPrice(row: PeriodicElement): void {
-
+  //
+  showHistoryPrice(row: PeriodicElement): void {
+    this.currentRow = row;
+    this.orderService.getHistoryPriceData(row.label).subscribe((chartData: any) => {
+      this.mixedChartType = CHARTJSTYPE.BAR;
+      this.mixedChartData = chartData;
+      const options: any = this.chartOptionsUtilService.getBaseBarChartOptions();
+      this.mixedChartOptions = options;
+      this.dialog.open(this.historyPriceChartDialog);
+    });
   }
 
 }
