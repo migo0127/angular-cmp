@@ -80,8 +80,25 @@ section{
   }
 }
 
+@media screen and (max-width: 667px) {
+  .costWrap {
+    grid-template-columns: 1fr 1fr;
+    & > div {
+      padding: .5rem;
+      &:nth-child(2){
+        border-right: none;
+        border-bottom: 1px solid #c2c2c2;
+        // border-image: linear-gradient(to right, transparent 5%, #c2c2c2 10%, #c2c2c2 85%, transparent 100%) 1;
+      }
+      &:nth-child(1){
+        border-bottom: 1px solid #c2c2c2;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 540px) {
-  .costWrap{
+  .costWrap {
     grid-template-columns: 1fr;
 
     & > div {

@@ -44,7 +44,7 @@
           (chartClick)="chartClicked($event, 'pie')"
           >
         </app-chart-js>
-        <p class="doughnutTotal">$1.22M</p>
+        <p class="doughnutTotal" *ngIf="doughnutChartData">$1.22M</p>
       </div>
       <div class="serviceItemWrap">
         <ul *ngIf="marketingData?.service">
