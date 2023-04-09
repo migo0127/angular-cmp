@@ -1,0 +1,26 @@
+<div>
+
+  <section >
+    <p>Custom Period Demo：
+      <span class="text">{{ date | json }}</span>
+    </p>
+    <app-period (dateChange)="onDateChange($event)">
+    </app-period>
+  </section>
+
+  <section class="progressWrap">
+    <p>Progress Bar Demo：</p>
+    <div class="progressContainer">
+      <mat-progress-bar
+        [mode]="progressMode"
+        [value]="progress$ | async"
+        >
+      </mat-progress-bar>
+      <p class="progressTxt"
+        [class]="progressValue >= 5 ? '' : 'warnColor'">
+        {{ progressValue + '%' }}
+      </p>
+    </div>
+  </section>
+
+</div>

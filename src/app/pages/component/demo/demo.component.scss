@@ -1,0 +1,40 @@
+@use 'src/styles' as style;
+
+section{
+  margin-bottom: 1.25rem;
+}
+
+p {
+  margin: 0 .5rem 1rem 0;
+}
+
+.text {
+  color: style.$warnColor;
+}
+
+.progressWrap {
+  .progressContainer {
+    height: 3vh;
+    position: relative;
+
+    mat-progress-bar {
+      height: 100%;
+    }
+
+    .progressTxt {
+      font-size: style.$fsLg;
+      height: 100%;
+      line-height: 3vh;
+      position: absolute;
+      top: 0;
+      left: 50%;
+    }
+
+    .warnColor {
+      color: style.$warnColor;
+    }
+
+
+  }
+
+}

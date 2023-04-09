@@ -8,3 +8,8 @@ export enum DATE {
   "MONTH" = "month",
   "DAY" = "day"
 }
+
+export interface PeriodType {
+  label: string;
+  value: string;
+}

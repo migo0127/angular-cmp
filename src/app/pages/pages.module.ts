@@ -6,6 +6,7 @@ import { MenuComponent } from './component/menu/menu.component';
 import { SideNavComponent } from './component/side-nav/side-nav.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { DemoComponent } from './component/demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     SideNavComponent,
     FooterComponent,
     DashboardComponent,
+    DemoComponent,
   ],
   imports: [
     ShareModule,

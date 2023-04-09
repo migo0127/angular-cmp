@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { DemoComponent } from './component/demo/demo.component';
 
 const routes: Routes = [
   { path: '',
@@ -13,10 +14,7 @@ const routes: Routes = [
         loadChildren: () => import('./component/order/order.module')
           .then(m => m.OrderModule)
       },
-      { path: 'analysis',
-        loadChildren: () => import('./component/analysis/analysis.module')
-          .then(m => m.AnalysisModule)
-      },
+      { path: 'demo', component: DemoComponent },
       { path: '**', redirectTo: 'dashboard' },
     ]
   },
