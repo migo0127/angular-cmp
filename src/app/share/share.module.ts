@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { ChartJsComponent } from './component/chart-js/chart-js.component';
 import { NgChartsModule } from 'ng2-charts';
+import { PeriodComponent } from './component/period/period.component';
 
 const ANGULAR_MODULE = [
   FormsModule,
@@ -13,6 +14,7 @@ const ANGULAR_MODULE = [
 
 const COMMON_COMPONENT = [
   ChartJsComponent,
+  PeriodComponent,
 ]
 
 @NgModule({
@@ -30,7 +32,7 @@ const COMMON_COMPONENT = [
     ANGULAR_MODULE,
     COMMON_COMPONENT
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: []
 })
 export class ShareModule { }

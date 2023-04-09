@@ -1,0 +1,51 @@
+<form [formGroup]="dateForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Date Range</mat-label>
+    <mat-select formControlName="date">
+      <mat-option *ngFor="let item of dateRange"
+        [value]="item.value"
+        >
+        <ng-container *ngIf="item.value !== '999'; else customRangeLabel">
+          <span
+            [ngStyle]="{ 'display': 'inline-block', 'width': '100%'}"
+            (click)="onSelectedDateOption(item.value)" >{{ item.label }}</span>
+        </ng-container>
+
+        <ng-template #customRangeLabel>
+          <ng-container *ngIf="dateRangeLabel.length > 0; else customDefaultLabel">
+            <span
+              [ngStyle]="{ 'display': 'inline-block', 'width': '100%'}"
+              (click)="onSelectedDateOption(item.value)">
+            {{ dateRangeLabel.join(' ~ ') }}
+          </span>
+          </ng-container>
+          <ng-template #customDefaultLabel>
+            <span
+              [ngStyle]="{ 'display': 'inline-block', 'width': '100%'}"
+              (click)="onSelectedDateOption(item.value)">
+              {{ item.label }}
+            </span>
+          </ng-template>
+        </ng-template>
+      </mat-option>
+    </mat-select>
+    <div class="matDataRangeWrap">
+      <mat-date-range-input
+        [rangePicker]="picker"
+        [min]="minStartDate"
+        [max]="maxEndDate"
+        >
+        <input
+          matStartDate
+          formControlName="startDate"
+          >
+        <input
+          matEndDate
+          formControlName="endDate"
+          >
+      </mat-date-range-input>
+      <mat-date-range-picker #picker ></mat-date-range-picker>
+    </div>
+  </mat-form-field>
+ {{ dateForm.value | json }}
+</form>

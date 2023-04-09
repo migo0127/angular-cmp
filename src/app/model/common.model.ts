@@ -1,4 +1,10 @@
 export enum YNFlag {
-  "Y" = 'Y',
-  "N" = 'N'
+  "Y" = 'y',
+  "N" = 'n'
+}
+
+export enum DATE {
+  "YEAR" = 'year',
+  "MONTH" = "month",
+  "DAY" = "day"
 }

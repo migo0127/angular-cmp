@@ -1,0 +1,11 @@
+form {
+  .mat-form-field {
+    min-width: 250px !important
+  }
+  .matDataRangeWrap {
+    .mat-date-range-input {
+      display: none;
+    }
+  }
+}
+
