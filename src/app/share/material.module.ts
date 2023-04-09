@@ -22,6 +22,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatMenuModule } from '@angular/material/menu';
 
 const MATERIAL_MODULE = [
   MatButtonModule,
@@ -45,6 +47,8 @@ const MATERIAL_MODULE = [
   MatNativeDateModule,
   MatDividerModule,
   MatProgressBarModule,
+  DragDropModule,
+  MatMenuModule,
 ]
 
 const MATERIAL_COMPONENT = [

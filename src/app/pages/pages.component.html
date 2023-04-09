@@ -3,11 +3,18 @@
     <app-menu></app-menu>
   </div>
 
-  <div class="navWrap">
+  <div class="webNavContainer">
     <app-side-nav></app-side-nav>
   </div>
 
-  <div class="mainWrap">
+  <div
+    cdkDragBoundary="body"
+    cdkDrag
+    class="mobileNavContainer">
+    <app-mobile-side-nav></app-mobile-side-nav>
+  </div>
+
+  <div class="mainWrap" >
     <div class="mainContainer">
       <router-outlet></router-outlet>
     </div>

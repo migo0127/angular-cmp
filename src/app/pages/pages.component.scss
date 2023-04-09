@@ -19,14 +19,25 @@
     height: 100%;
   }
 
-  .navWrap{
+  .webNavContainer{
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
     overflow: auto;
   }
 
-  @media screen and (max-width: 541px) {
-    .navWrap {
+  .mobileNavContainer{
+    display: none;
+  }
+
+  @media screen and (max-width: 540px) {
+    .webNavContainer {
       display: none;
+    }
+    .mobileNavContainer {
+      display: unset;
+      position: absolute;
+      top: 6vh;
+      left: 1vw;
+      z-index: 1;
     }
   }
 

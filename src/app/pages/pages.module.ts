@@ -7,12 +7,14 @@ import { SideNavComponent } from './component/side-nav/side-nav.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DemoComponent } from './component/demo/demo.component';
+import { MobileSideNavComponent } from './component/mobile-side-nav/mobile-side-nav.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     MenuComponent,
     SideNavComponent,
+    MobileSideNavComponent,
     FooterComponent,
     DashboardComponent,
     DemoComponent,
