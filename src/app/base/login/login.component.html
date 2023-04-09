@@ -27,13 +27,27 @@
       <div class="inputWrap">
         <mat-icon>lock</mat-icon>
         <label>密碼：</label>
-        <input
-          matInput
-          type="text"
-          id="pwd"
-          formControlName="pwd"
-          placeholder="請輸入密碼"
-          >
+        <div class="pwdContainer">
+          <input
+            matInput
+            [type]=" pwdVisible ? 'text' : 'password'"
+            id="pwd"
+            formControlName="pwd"
+            placeholder="請輸入密碼"
+            >
+          <mat-icon
+            *ngIf="pwdVisible"
+            (click)="pwdVisibleChange()"
+            >
+            visibility
+          </mat-icon>
+          <mat-icon
+            *ngIf="!pwdVisible"
+            (click)="pwdVisibleChange()"
+            >
+            visibility_off
+          </mat-icon>
+        </div>
       </div>
       <div class="error">
         <mat-error
@@ -74,21 +88,21 @@
         >
         送出
       </button>
-      <button
+      <!-- <button
         mat-raised-button
         color="accent"
         (click)="onRegister()"
         >
         註冊
-      </button>
+      </button> -->
     </div>
 
-    <span
+    <!-- <span
       class="forgotPwd cursor"
       (click)="forgotPwd()"
       >
       忘記密碼
-    </span>
+    </span> -->
 
   </form>
 

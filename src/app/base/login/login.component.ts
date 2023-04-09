@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   loginForm: UntypedFormGroup;
   hide: Boolean;
   captcha: string;
+  pwdVisible: boolean;
 
   get idControl(): AbstractControl | null { return this.loginForm.get('id') };
   get pwdControl(): AbstractControl | null { return this.loginForm.get('pwd') };
@@ -58,6 +59,10 @@ export class LoginComponent implements OnInit {
       randomArr.push(random);
     }
     this.captcha = randomArr.join('');
+  }
+
+  pwdVisibleChange(): void {
+    this.pwdVisible = !this.pwdVisible;
   }
 
   onSubmit(): void {

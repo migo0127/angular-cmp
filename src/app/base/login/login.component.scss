@@ -1,5 +1,6 @@
 @use 'src/styles' as style;
 
+
 section{
   @extend %flexCenter;
   @extend %fullContainer;
@@ -29,6 +30,21 @@ section{
     .idWrap, .pwdWrap{
       height: 8vh;
       min-height: 75px;
+    }
+
+    .pwdWrap > .inputWrap {
+      display: flex;
+    }
+
+    .pwdContainer{
+      display: grid;
+      grid-template-columns: 170px 30px;
+      input {
+        min-width: 100%;
+      }
+      input[type="password"]::-ms-reveal {
+        display: none;
+      }
     }
 
     .inputWrap{
