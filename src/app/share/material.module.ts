@@ -17,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MATERIAL_MODULE = [
   MatButtonModule,
@@ -35,6 +36,7 @@ const MATERIAL_MODULE = [
   MatSortModule,
   MatSelectModule,
   MatRadioModule,
+  MatTooltipModule,
 ]
 
 const MATERIAL_COMPONENT = [

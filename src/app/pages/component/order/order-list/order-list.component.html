@@ -34,7 +34,7 @@
 
       <!-- Price -->
       <mat-form-field>
-        <mat-label>Price Area</mat-label>
+        <mat-label>Price Range</mat-label>
         <input
           matInput
           type="text"
@@ -43,8 +43,9 @@
           >
       </mat-form-field>
 
+      <!-- sale qty -->
       <mat-form-field>
-        <mat-label>Sale Qty Area</mat-label>
+        <mat-label>Sale Qty Range</mat-label>
         <input
           matInput
           type="text"
@@ -53,6 +54,7 @@
           >
       </mat-form-field>
 
+      <!-- total -->
       <div class="totalWrap">
         <div>
           <label>Total:</label>
@@ -71,13 +73,24 @@
         </mat-slider>
       </div>
 
+      <!-- operator -->
       <div class="operatorWarp">
         <mat-radio-group
           formControlName="operator"
           aria-label="Select an option"
           >
-          <mat-radio-button value="0">Less</mat-radio-button>
-          <mat-radio-button value="1">More</mat-radio-button>
+          <mat-radio-button
+            matTooltip="Less than or equal to the price range, qty range and total amount"
+            value="0"
+            >
+            Less
+          </mat-radio-button>
+          <mat-radio-button
+            matTooltip="More than or equal to the price range, qty range and total amount"
+            value="1"
+            >
+            More
+          </mat-radio-button>
           <mat-radio-button value="2">Equal</mat-radio-button>
         </mat-radio-group>
       </div>
