@@ -6,6 +6,8 @@ import { ChartJsComponent } from './component/chart-js/chart-js.component';
 import { NgChartsModule } from 'ng2-charts';
 import { PeriodComponent } from './component/period/period.component';
 import { CapitalizePipe } from './pipe/capitalize.pipe';
+import { DetectAlphaNumericDirective } from './directive/detect-alpha-numeric.directive';
+import { DetectNumberDirective } from './directive/detect-number.directive';
 
 const ANGULAR_MODULE = [
   FormsModule,
@@ -18,9 +20,15 @@ const COMMON_COMPONENT = [
   PeriodComponent,
 ]
 
+const CUSTOM_PIPE_DIRECTIVE = [
+  CapitalizePipe,
+  DetectNumberDirective,
+  DetectAlphaNumericDirective,
+];
+
 @NgModule({
   declarations: [
-    CapitalizePipe,
+    CUSTOM_PIPE_DIRECTIVE,
     COMMON_COMPONENT,
   ],
   imports: [
@@ -31,9 +39,9 @@ const COMMON_COMPONENT = [
   exports: [
     MaterialModule,
     NgChartsModule,
-    CapitalizePipe,
     ANGULAR_MODULE,
-    COMMON_COMPONENT
+    CUSTOM_PIPE_DIRECTIVE,
+    COMMON_COMPONENT,
   ],
   providers:  [DatePipe ],
   bootstrap: []

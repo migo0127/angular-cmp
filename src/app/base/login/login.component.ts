@@ -40,16 +40,16 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.getCaptcha();
-    this.idControl?.valueChanges.subscribe((value: string) => {
-      const newValue = value.trim().replace(/[^A-z\d]+$/, '');
-      this.idControl?.patchValue(newValue, {emitEvent: false})
-    });
-    this.pwdControl?.valueChanges.subscribe((value: string) => {
-      const newValue = value.trim().replace(/\s+/, '');
-      this.pwdControl?.patchValue(newValue, {emitEvent: false})
-    })
+    // 改使用 directive
+    // this.idControl?.valueChanges.subscribe((value: string) => {
+    //   const newValue = value.trim().replace(/[^A-z\d]+$/, '');
+    //   this.idControl?.patchValue(newValue, {emitEvent: false})
+    // });
+    // this.pwdControl?.valueChanges.subscribe((value: string) => {
+    //   const newValue = value.trim().replace(/\s+/, '');
+    //   this.pwdControl?.patchValue(newValue, {emitEvent: false})
+    // })
   }
 
   getCaptcha(): void {
