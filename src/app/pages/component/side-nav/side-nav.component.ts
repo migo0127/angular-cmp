@@ -12,6 +12,7 @@ import { SideNavService } from 'src/app/service';
 export class SideNavComponent implements OnInit {
 
   sideNavList: SideNavList[];
+  isSideNavVisible: boolean;
 
   constructor(
     private router: Router,
@@ -21,6 +22,10 @@ export class SideNavComponent implements OnInit {
   ngOnInit(): void {
     this.sideNavService.getSideNavList().subscribe((list: SideNavList[]) => {
       this.sideNavList = list;
+    });
+    this.sideNavService.getSideNavVisibility().subscribe((isVisible: boolean) => {
+      this.isSideNavVisible = isVisible;
+      // console.log('isSideNavVisible:', isVisible);
     });
   }
 

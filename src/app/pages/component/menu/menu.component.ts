@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserInfo } from 'src/app/model';
-import { LoginService, UserInfoService } from 'src/app/service';
+import { LoginService, SideNavService, UserInfoService } from 'src/app/service';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   @ViewChild('userInfoDialog') userInfoDialog: TemplateRef<any>;
 
-  logoUrl: string = 'assets/img/login-1.png';
+  logoUrl: string = 'assets/img/logo-1.png';
   userInfo: UserInfo;
   userInfoDisplayedColumns: string[] = [
     'role', 'name', 'mail', 'github'
@@ -23,6 +23,7 @@ export class MenuComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private loginService: LoginService,
+    private sideNavService: SideNavService,
     private userInfoService: UserInfoService,
   ) {}
 
@@ -41,4 +42,9 @@ export class MenuComponent implements OnInit {
   onLogout(): void {
     this.loginService.logout();
   }
+
+  toggleSideNavVisible(): void {
+    this.sideNavService.toggleSideNavVisible();
+  }
+
 }
