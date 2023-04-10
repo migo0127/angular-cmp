@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, forkJoin } from 'rxjs';
 import { SideNavList } from 'src/app/model';
 import { SideNavService } from 'src/app/service';
 
@@ -20,12 +21,14 @@ export class SideNavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.sideNavService.getSideNavList().subscribe((list: SideNavList[]) => {
+    const obj: Observable<[SideNavList[], boolean]> = forkJoin([
+      this.sideNavService.getSideNavList(),
+      this.sideNavService.getSideNavVisibility(),
+    ]);
+
+    obj.subscribe(([list, isVisible]: [SideNavList[], boolean])  => {
       this.sideNavList = list;
-    });
-    this.sideNavService.getSideNavVisibility().subscribe((isVisible: boolean) => {
-      this.isSideNavVisible = isVisible;
-      // console.log('isSideNavVisible:', isVisible);
+      this.isSideNavVisible = isVisible
     });
   }
 
