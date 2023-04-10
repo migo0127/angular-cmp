@@ -17,10 +17,10 @@ export class PeriodComponent implements OnInit {
   dateRange: PeriodType[] = [
     { label: 'Last 7 Days', value: '7' },
     { label: 'Last 14 Days', value: '14' },
-    { label: 'Last 1 Months', value: '1' },
+    { label: 'Last 1 Month', value: '1' },
     { label: 'Last 3 Months', value: '3' },
     { label: 'Last 6 Months', value: '6' },
-    { label: 'Last 1 Years', value: '365' },
+    { label: 'Last 1 Year', value: '365' },
     { label: 'Custom Date Range', value: '999' },
   ];
 
