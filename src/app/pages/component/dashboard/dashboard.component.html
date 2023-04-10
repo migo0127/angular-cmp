@@ -31,7 +31,7 @@
     </div>
   </section>
 
-  <!--  -->
+  <!-- chartWrap -->
   <section class="chartWrap">
     <div class="serviceWrap">
       <div class="doughnutCharWrap">
@@ -73,14 +73,14 @@
   </section>
 
   <section
-    *ngIf="tableData"
     class="tableWrap">
     <p class="tableTitle">Product Ranking</p>
     <div class="tableContainer">
       <table
         mat-table
+        matSort
         [dataSource]="tableData"
-        matSort>
+        >
         <ng-container matColumnDef="index">
           <th
             mat-header-cell

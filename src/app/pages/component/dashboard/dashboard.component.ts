@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { CHARTJSTYPE, CostData, MarketingData, ProductDashboard } from 'src/app/model';
@@ -11,6 +13,7 @@ import { DashboardService, ChartOptionsUtilService } from 'src/app/service';
 })
 export class DashboardComponent implements OnInit {
 
+  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   costData: CostData[];
@@ -36,7 +39,7 @@ export class DashboardComponent implements OnInit {
   // pieChartData: ChartData;
   // pieChartOptions: ChartConfiguration['options'];
 
-  tableData: ProductDashboard[];
+  tableData: MatTableDataSource<ProductDashboard>;
   displayedTableColumns: string[] = ['index', 'name', 'price', 'qty', 'total'];
 
   constructor(
@@ -127,7 +130,8 @@ export class DashboardComponent implements OnInit {
 
   initTableData(): void {
     this.dashboardService.getTableData().subscribe((data: ProductDashboard[]) => {
-      this.tableData = data;
+      this.tableData = new MatTableDataSource<ProductDashboard>(data);
+      this.tableData.sort = this.sort;
     });
   }
 
