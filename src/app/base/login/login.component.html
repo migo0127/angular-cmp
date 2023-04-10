@@ -13,6 +13,8 @@
           id="id"
           formControlName="id"
           placeholder="請輸入帳號"
+          detectAlphaNum
+          [maxlength]="10"
           >
       </div>
       <div class="error">
@@ -34,6 +36,8 @@
             id="pwd"
             formControlName="pwd"
             placeholder="請輸入密碼"
+            [maxlength]="14"
+            detectNumber
             >
           <mat-icon
             *ngIf="pwdVisible"
