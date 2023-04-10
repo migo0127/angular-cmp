@@ -16,7 +16,7 @@
             <span
               [ngStyle]="{ 'display': 'inline-block', 'width': '100%'}"
               (click)="onSelectedDateOption(item.value)">
-            {{ dateRangeLabel.join(' ~ ') }}
+            {{ dateRangeLabel[0] + ' ~ ' + (dateRangeLabel[1] ? dateRangeLabel[1] : '') }}
           </span>
           </ng-container>
           <ng-template #customDefaultLabel>
@@ -29,6 +29,9 @@
         </ng-template>
       </mat-option>
     </mat-select>
+    <mat-hint *ngIf="dateControl.value === '999'">
+      開始與結束日期必選
+    </mat-hint>
     <div class="matDataRangeWrap">
       <mat-date-range-input
         [rangePicker]="picker"
@@ -47,5 +50,4 @@
       <mat-date-range-picker #picker ></mat-date-range-picker>
     </div>
   </mat-form-field>
- <!-- {{ dateForm.value | json }} -->
 </form>

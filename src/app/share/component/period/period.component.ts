@@ -81,14 +81,15 @@ export class PeriodComponent implements OnInit {
   private bindStartDateEndDateValueChanges(): void {
     this.startDateControl.valueChanges.subscribe((startDate: string) => {
       if(startDate){
-        this.dateRangeLabel.push(this.dateFormatDate(startDate, '999'));
+        if(this.dateRangeLabel.length >= 2) this.dateRangeLabel = [];
+        this.dateRangeLabel[0] = this.dateFormatDate(startDate, '999');
         this.dateEmitEvent(this.dateRangeLabel);
       }
     });
 
     this.endDateControl.valueChanges.subscribe((endDate: string) => {
       if(endDate){
-        this.dateRangeLabel.push(this.dateFormatDate(endDate, '999'));
+        this.dateRangeLabel[1] = this.dateFormatDate(endDate, '999');
         this.dateEmitEvent(this.dateRangeLabel);
       }
     });
@@ -112,12 +113,7 @@ export class PeriodComponent implements OnInit {
   }
 
   private dateEmitEvent(searchDate: string | string[]): void {
-    if(typeof searchDate === 'string'){
-      this.dateChange.emit(searchDate);
-    }
-    if(searchDate.length === 2){
-      this.dateChange.emit(searchDate);
-    }
+    this.dateChange.emit(searchDate);
   }
 
   onSelectedDateOption(value: string){
@@ -128,6 +124,7 @@ export class PeriodComponent implements OnInit {
       this.dateEmitEvent(this.dateFormatDate(value));
     }
   }
+
 
   private clearSelectedDateRange(): void {
     this.startDateControl.patchValue('', { emitEvent: false });

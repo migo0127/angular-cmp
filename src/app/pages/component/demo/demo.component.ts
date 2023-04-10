@@ -35,7 +35,18 @@ export class DemoComponent implements OnInit {
   }
 
   onDateChange(e: string | string[]): void {
-    this.date = e;
+    // Date Range
+    if(Array.isArray(e) && e.length < 2){
+      this.date = [];
+    }else if (Array.isArray(e) && e.length === 2){
+      this.date = e;
+    }
+
+    // Date
+    if(typeof e === 'string'){
+      this.date = e;
+    }
+
     // this.ngZone.runOutsideAngular(() => {
     //   this.date = e;
     // });

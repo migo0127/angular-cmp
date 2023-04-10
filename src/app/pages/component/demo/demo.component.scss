@@ -12,9 +12,20 @@ p {
   color: style.$warnColor;
 }
 
+@media screen and (max-width: 540px) {
+  .periodTxt {
+   span {
+    margin-top: .5rem;
+    display: block;
+   }
+  }
+}
+
+
 .progressWrap {
   .progressContainer {
     height: 3vh;
+    min-height: 22px;
     position: relative;
 
     mat-progress-bar {
@@ -34,7 +45,5 @@ p {
       color: style.$warnColor;
     }
 
-
   }
-
 }
