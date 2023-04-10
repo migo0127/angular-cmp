@@ -133,7 +133,7 @@ export class LoginComponent implements OnInit {
   mockData(): void {
     const loginData: loginItemWithCaptcha = {
       id: "A123456789",
-      pwd: "abcd1234",
+      pwd: "abcd123456",
       captcha: this.captcha
     }
     this.loginForm.setValue(loginData, { emitEvent: false });
