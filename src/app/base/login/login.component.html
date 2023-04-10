@@ -13,8 +13,9 @@
           id="id"
           formControlName="id"
           placeholder="請輸入帳號"
-          detectAlphaNum
           [maxlength]="10"
+          detectAlphaNum
+          matTooltip="Only 1 alpha and numbers with maximum 9 digits."
           >
       </div>
       <div class="error">
@@ -27,7 +28,7 @@
     </div>
     <div class="pwdWrap">
       <div class="inputWrap">
-        <mat-icon>lock</mat-icon>
+        <mat-icon >lock</mat-icon>
         <label>密碼：</label>
         <div class="pwdContainer">
           <input
@@ -38,6 +39,7 @@
             placeholder="請輸入密碼"
             [maxlength]="14"
             detectNumber
+            matTooltip="Only numbers with maximum 14 digits."
             >
           <mat-icon
             *ngIf="pwdVisible"
@@ -71,6 +73,7 @@
         id="captcha"
         formControlName="captcha"
         placeholder="請輸入驗證碼"
+        detectNumber
         >
       <span class="captchaNum">{{ captcha }}</span>
 
