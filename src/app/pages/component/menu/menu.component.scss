@@ -25,8 +25,9 @@
   }
 
   .userInfoWrap{
+    @extend %flexCenter;
     span {
-      margin: 0 1rem;
+      margin: 0 .75rem;
     }
   }
 }
@@ -49,6 +50,9 @@
 }
 
 @media screen and (max-width: 540px) {
+  #menuContainer mat-sidenav-content{
+    width: 90%;
+  }
   .userInfoDialogWrap {
     width: 250px;
     min-width: 250px;

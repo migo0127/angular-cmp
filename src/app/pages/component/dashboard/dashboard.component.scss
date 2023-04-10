@@ -15,7 +15,7 @@ section{
   border-radius: 5px;
 
   & > div {
-    @extend %flexCloumnCenter;
+    @extend %flexColumnCenter;
     height: max-content;
     min-height: max-content;
 

@@ -21,14 +21,12 @@ export class SideNavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const obj: Observable<[SideNavList[], boolean]> = forkJoin([
-      this.sideNavService.getSideNavList(),
-      this.sideNavService.getSideNavVisibility(),
-    ]);
-
-    obj.subscribe(([list, isVisible]: [SideNavList[], boolean])  => {
+    this.sideNavService.getSideNavList().subscribe((list: SideNavList[]) => {
       this.sideNavList = list;
-      this.isSideNavVisible = isVisible
+    });
+    this.sideNavService.getSideNavVisibility().subscribe((isVisible: boolean) => {
+      this.isSideNavVisible = isVisible;
+      // console.log('isSideNavVisible:', isVisible);
     });
   }
 
