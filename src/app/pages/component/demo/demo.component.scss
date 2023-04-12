@@ -23,6 +23,10 @@ p {
 
 
 .progressWrap {
+  p > button {
+    margin-right: .5rem;
+  }
+
   .progressContainer {
     height: 3vh;
     min-height: 22px;
@@ -34,11 +38,13 @@ p {
 
     .progressTxt {
       font-size: style.$fsLg;
+      color: style.$whiteColor;
       height: 100%;
       line-height: 3vh;
       position: absolute;
       top: 0;
       left: 50%;
+      transform: translateX(-50%);
     }
 
     .warnColor {

@@ -13,18 +13,36 @@
   </section>
 
   <section class="progressWrap">
-    <h3>二、基本 Progress Bar 數值顯示，將停止在 10%。</h3>
-    <p>Progress Bar Demo：</p>
+    <h3>二、基本 Progress Bar 倒數計時器，將從 10 分 00 秒開始倒數。</h3>
+    <p>Progress Bar Demo：
+      <button
+        type="button"
+        (click)="startCountdownTime()"
+        >
+        Start
+      </button>
+      <button
+        type="button"
+        (click)="stopCountdownTime()"
+        >
+        Stop
+      </button>
+    </p>
     <div class="progressContainer">
       <mat-progress-bar
         [mode]="progressMode"
-        [value]="progress$ | async"
+        [value]="progressValue"
         >
       </mat-progress-bar>
-      <p class="progressTxt"
+      <span
+        class="progressTxt"
+        >
+        剩餘 {{ minutes }} 分 {{ seconds | number: '2.0-0' }} 秒
+      </span>
+      <!-- <p class="progressTxt"
         [class]="progressValue >= 5 ? '' : 'warnColor'">
         {{ progressValue + '%' }}
-      </p>
+      </p> -->
     </div>
   </section>
 
