@@ -17,7 +17,7 @@
 
 - Demo 頁面
   - Custom Period Demo： 自訂義日曆元件，將 mat-select 與 mat-date-range-input 組合在一起使用，並可根據所選項目計算日期。
-  - Progress Bar Demo：基本 Progress Bar 數值顯示，將停止在 10%。
+  - Progress Bar Demo：基本 Progress Bar 倒數計時器，將從 10 分 00 秒開始倒數。
 
 - 使用者基本資料顯示 (點擊使用者名稱)。
 
