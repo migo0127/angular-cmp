@@ -1,14 +1,13 @@
 @use 'src/styles' as style;
 
-
 section{
-  @extend %flexCenter;
-  @extend %fullContainer;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../../assets/img/login.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+    @extend %flexCenter;
+    @extend %fullContainer;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/img/login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
   form {
     width: 20vw;
@@ -20,104 +19,106 @@ section{
     border-radius: 20px;
     font-size: style.$fsLg;
 
-    > div {
-      width: 80%;
+    & > div {
+      width: 95%;
       min-width: fit-content;
       margin: 0 auto;
       margin-bottom: 1.5rem;
     }
+  }
 
-    .idWrap, .pwdWrap{
-      height: 8vh;
-      min-height: 75px;
-    }
+  .idWrap, .pwdWrap{
+    height: 8vh;
+    min-height: 75px;
+  }
 
-    .idWrap {
-      input {
-        max-width: 191px;
-        min-width: 190px;
-      }
+  .idWrap {
+    input {
+      max-width: 190px;
+      min-width: 190px;
     }
+  }
 
-    .pwdWrap > .inputWrap {
-      display: flex;
+  .pwdContainer{
+    display: grid;
+    grid-template-columns: 160px 35px;
+    input {
+      min-width: 100%;
     }
+    input[type="password"]::-ms-reveal {
+      display: none;
+    }
+  }
 
-    .pwdContainer{
-      display: grid;
-      grid-template-columns: 160px 35px;
-      input {
-        min-width: 100%;
-      }
-      input[type="password"]::-ms-reveal {
-        display: none;
-      }
-    }
+  .inputWrap{
+    @extend %flexEvenly;
+    border: 1px solid  rgba($color: #000000, $alpha: .3);
+    padding: 1rem 0;
+  }
 
-    .inputWrap{
-      border: 1px solid  rgba($color: #000000, $alpha: .3);
-      padding: 1rem 0;
-    }
+  mat-icon{
+    margin: 0 .2rem;
+    color: style.$mainColor;
+  }
 
-    .error {
-      font-size: style.$fsMd;
-      text-align: end;
-    }
+  label{
+    min-width: fit-content;
+    display: inline-block;
+  }
 
-    mat-error {
-      margin-right: .25rem;
-    }
+  input{
+    min-width: fit-content;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom:  none;
+  }
 
-    mat-icon{
-      margin: 0 .2rem;
-      color: style.$mainColor;
-    }
+  input[type="password"]::-ms-reveal {
+    display: none;
+  }
 
-    label{
-      min-width: fit-content;
-      display: inline-block;
-    }
+  .error {
+    font-size: style.$fsMd;
+    text-align: end;
+  }
+
+  mat-error {
+    margin-right: .25rem;
+  }
+
+  .captchaWrap{
     input{
-      min-width: fit-content;
-      outline: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      border-bottom:  none;
-    }
-
-    .captchaWrap{
-      input{
-        width: 45%;
-        min-width: 45%;
-      }
-    }
-
-    #captcha{
-      border-bottom: 1px solid rgba($color: #000000, $alpha: .3);;
-    }
-
-    .captchaNum{
-      margin-left: 1rem;
-    }
-
-    .btnWrap{
-      @extend %flexEvenly;
-    }
-
-    .forgotPwd{
-      font-size: style.$fsMin;
-      text-decoration: underline;
+      width: 45%;
+      min-width: 45%;
     }
   }
 
-  .mockBtn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    position: fixed;
-    top: 75%;
-    left: 75%;
+  #captcha{
+    border-bottom: 1px solid rgba($color: #000000, $alpha: .3);;
   }
 
+  .captchaNum{
+    margin-left: 1rem;
+  }
+
+  .btnWrap{
+    @extend %flexEvenly;
+  }
+
+  .forgotPwd{
+    font-size: style.$fsMin;
+    text-decoration: underline;
+  }
 }
+
+.mockBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: fixed;
+  top: 75%;
+  left: 75%;
+}
+
